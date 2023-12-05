@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="js/bootstrap.bundle.min.js"></script>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     
     <header>
       <?php $compMenu->affichage(); ?>
