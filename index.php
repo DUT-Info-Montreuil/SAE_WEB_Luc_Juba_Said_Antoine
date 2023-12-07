@@ -11,13 +11,18 @@ include_once('vue_generique.php');
 
 $vueGen = new VueGenerique;
 
-$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "connexion"; 
+$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "partie"; 
 
 switch($module) {
     case 'connexion':
         include_once('modules/mod_connexion/mod_connexion.php');
         $modConnexion = new ModConnexion;
         $modConnexion->exec();
+    break;
+    case 'partie':
+        include_once('modules/mod_partie/mod_partie.php');
+        $modPartie = new ModPartie;
+        $modPartie->exec();
     break;
     default:
        die("Le module n'existe pas.");
