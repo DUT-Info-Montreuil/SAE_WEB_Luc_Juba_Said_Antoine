@@ -19,7 +19,14 @@ switch($module) {
         $modConnexion = new ModConnexion;
         $modConnexion->exec();
     break;
+    case 'tours':
+        include_once('modules/mod_tours/cont_tours.php"');
+            $contTours = new ContTours($db);
+            $contTours->afficheTours();
+            break;
+    
     default:
+
        die("Le module n'existe pas.");
 }
 
@@ -30,5 +37,7 @@ include_once("composants/menu/comp_menu.php");
 $compMenu = new CompMenu;
 
 include_once('template.php');
+
+
 
 ?>
