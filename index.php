@@ -20,9 +20,9 @@ switch($module) {
         $modConnexion->exec();
     break;
     case 'tours':
-        include_once('modules/mod_tours/cont_tours.php"');
-            $contTours = new ContTours($db);
-            $contTours->afficheTours();
+        include_once('modules/mod_tours/mod_tours.php');
+            $contTours = new ModTours();
+            $contTours->exec();
             break;
     
     default:

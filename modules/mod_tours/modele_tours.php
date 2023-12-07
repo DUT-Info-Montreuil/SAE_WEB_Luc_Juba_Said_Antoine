@@ -10,9 +10,18 @@ class ModeleTours extends Connexion {
     }
 
     public function getTours() {
-        $sql = "SELECT * FROM tours"; // Assurez-vous que 'tours' est le nom de votre table
+        $sql = "SELECT * FROM Tours"; 
         $result = self::$bdd->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function rechercheTours($nom) {
+        $sql = "SELECT * FROM tours WHERE nom LIKE :nom";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':nom', '%' . $nom . '%');
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>

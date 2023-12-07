@@ -12,8 +12,20 @@ class ContTours {
     }
 
     public function afficheTours() {
+        $this->vue->afficherBarre();
         $tours = $this->modele->getTours();
         $this->vue->afficherTours($tours);
     }
+
+    public function rechercheTours() {
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $nom = $_GET['search'];
+            $tours = $this->modele->rechercheTours($nom);
+        } else {
+            $tours = $this->modele->getTours();
+        }
+        $this->vue->afficherTours($tours);
+    }
+    
 }
 ?>

@@ -1,19 +1,23 @@
 <?php
 
-require_once("cont_connexion.php");
+require_once("cont_tours.php");
 
 class ModTours {
 
     private $action,$cont;
 
     public function __construct(){
-        $this->cont = new ContConnexion;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : ""; 
+        $this->cont = new ContTours;
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "Test"; 
     }
 
     public function exec() {
 
-      switch($action){
+      switch($this->action){
+
+        case "Test" : 
+            $this->cont->afficheTours();
+            break;
         default : 
         die("Action inexistante");
       }
