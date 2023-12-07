@@ -3,7 +3,7 @@
 require_once("modele_partie.php");
 require_once("vue_partie.php");
 
-class ContConnexion {
+class ContPartie {
 
     private $modele,$vue;
 

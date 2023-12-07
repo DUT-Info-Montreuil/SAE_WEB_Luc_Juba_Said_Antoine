@@ -1,6 +1,6 @@
 <?php
 
-require_once("cont_connexion.php");
+require_once("cont_partie.php");
 
 class ModPartie {
 
