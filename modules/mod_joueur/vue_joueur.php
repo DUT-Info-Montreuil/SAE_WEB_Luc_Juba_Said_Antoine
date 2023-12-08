@@ -18,7 +18,7 @@ class VueJoueur extends VueGenerique {
            <?php 
            
            foreach ($joueurs as $j){
-                 echo  "<br>".$j['id_partie']."  ".$j['score']; 
+                 echo  "<br>".$j['pseudo']."  ".$j['scoreMax']; 
            }
 
            ?>

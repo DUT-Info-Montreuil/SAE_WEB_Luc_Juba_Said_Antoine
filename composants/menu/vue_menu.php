@@ -15,6 +15,7 @@ class VueMenu {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav style="width: 100%;">
+                        <a class="nav-link" href="index.php?module=classement">Classement</a> 
                         <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
                     </div>
                 </div>

@@ -11,13 +11,18 @@ include_once('vue_generique.php');
 
 $vueGen = new VueGenerique;
 
-$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "connexion"; 
+$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "classement"; 
 
 switch($module) {
     case 'connexion':
         include_once('modules/mod_connexion/mod_connexion.php');
         $modConnexion = new ModConnexion;
         $modConnexion->exec();
+    break;
+    case 'classement':
+        include_once('modules/mod_joueur/mod_joueur.php');
+        $modJoueur = new ModJoueur;
+        $modJoueur->exec();
     break;
     default:
        die("Le module n'existe pas.");
