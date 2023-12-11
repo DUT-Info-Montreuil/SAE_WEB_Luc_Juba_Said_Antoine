@@ -11,8 +11,7 @@ class ContActeur {
     }
     public function liste() {
         $liste = $this->modele_acteur->getListe();
-        $this->vue_acteur->affiche_liste($liste); 
-        $this->vue_acteur->menu();
+        $this->vue_acteur->affiche_liste($liste);
     }
 
 
