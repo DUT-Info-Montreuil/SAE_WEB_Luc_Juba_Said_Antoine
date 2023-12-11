@@ -2,35 +2,36 @@
 
 include_once("vue_generique.php");
 
-class VueJoueur extends VueGenerique {
+class VueJoueur extends VueGenerique
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
     }
 
 
-    public function afficheClassement($joueurs){
+    public function filtreClassement()
+    {
+        ?>
+        <h1>Classement des Joueurs</h1>
 
-    ?>
-        <body>
-            <h1>Classement des Joueurs</h1>
-             
-           <?php 
-           
-           foreach ($joueurs as $j){
-                 echo  "<br>".$j['pseudo']."  ".$j['scoreMax']; 
-           }
+        <a href="index.php?module=classement&action=score">score</a>
+        <br>
+        <a href="index.php?module=classement&action=vague">vague</a>
+        <?php
 
-           ?>
+    }
 
-        </body>
 
-    <?php
+    public function afficheClassement($joueurs)
+    {
+        foreach ($joueurs as $j) {
+            echo "<br>" . $j['pseudo'] . "  " . $j['max_value'];
+        }
+    }
+
 }
-
-}
-
-
 
 
 ?>

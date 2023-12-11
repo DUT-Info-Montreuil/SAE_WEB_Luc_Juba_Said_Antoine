@@ -2,26 +2,36 @@
 
 require_once("cont_joueur.php");
 
-class ModJoueur {
+class ModJoueur
+{
 
-    private $action,$cont;
+    private $action, $cont;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->cont = new ContJoueur;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : "test"; 
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "score";
     }
 
-    public function exec() {
-        
-        switch($this->action) {
-            case "test":
+    public function exec()
+    {
+
+        $this->cont->afficheMenu();
+
+        switch ($this->action) {
+
+            case "score":
                 $this->cont->afficheClass();
-            break;
-            default :
+                break;
+
+            case "vague":
+                $this->cont->afficheClass();
+                break;
+            default:
                 die("L'action n'existe pas.");
         }
     }
-    
+
 }
 
 

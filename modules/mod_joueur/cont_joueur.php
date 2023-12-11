@@ -12,10 +12,13 @@ class ContJoueur {
         $this->modele = new ModeleJoueur;
         $this->vue = new VueJoueur;
     }
-
+    public function afficheMenu()
+    {
+        $this->vue->filtreClassement();
+    }
 
     public function afficheClass(){
-        $joueurs = $this->modele->getClassementJoueurParScore();
+        $joueurs = $this->modele->getClassementJoueur($_GET['action']);
         $this->vue->afficheClassement($joueurs);
     }
 
