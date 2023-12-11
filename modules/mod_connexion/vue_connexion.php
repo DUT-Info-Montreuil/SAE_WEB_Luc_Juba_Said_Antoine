@@ -34,7 +34,7 @@ class VueConnexion extends VueGenerique {
         <?php
     }
 
-    public function form_connexion() {
+    public function form_connexion() {  
         ?>
 
         <div class="mx-auto p-2" style="width: 300px;">

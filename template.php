@@ -13,8 +13,11 @@
       <?php $compMenu->affichage(); ?>
     </header>
 
-    <main>
+    <main >
       <?php echo $contenu; ?>
+      <div class="barreTours">
+      </div>
+
     </main>
 
   </body>
