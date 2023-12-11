@@ -33,6 +33,7 @@ class VueMenu {
                         <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         <a class="nav-link" href="index.php?module=connexion">Connexion</a>
                         <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Inscription</a>
+                        <a class="nav-link" href="index.php?module=mod_acteur">Liste Acteurs</a>
                     </div>
                 </div>
                 </div>
