@@ -16,6 +16,11 @@ class ContPartie {
         $tab = $this->modele->getListePartie();
         $this->vue->affiche_partie($tab);
     }
+
+    public function affiche_partieDetails() {
+        $partie = $this->modele->getPartie($_GET['id']);
+        $this->vue->affiche_details($partie);
+    }
 }
 
 ?>
