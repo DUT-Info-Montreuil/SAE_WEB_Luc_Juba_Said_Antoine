@@ -37,7 +37,7 @@ class VueActeur extends vueGenerique{
             echo "<p>pv : " . $acteur['pv'] . "</p>";
             echo "<p>attaque : " . $acteur['attaque'] . "</p>";
             echo "<p>descriptif : " . $acteur['descriptif'] . "</p>";
-            //echo "<p>image : " . $acteur['image'] . "</p>";
+            echo "<p>Logo : <img src='" . $acteur['image'] . "' alt='Logo de " . $acteur['image'] . "' style='max-width:100px;max-height:100px;'></p>";
         }
     }
 
