@@ -10,7 +10,6 @@ class ContActeur {
         $this->vue_acteur = new VueActeur();
     }
     public function liste() {
-        echo"dans liste contActeur";
         $liste = $this->modele_acteur->getListe();
         $this->vue_acteur->affiche_liste($liste); 
         $this->vue_acteur->menu();
