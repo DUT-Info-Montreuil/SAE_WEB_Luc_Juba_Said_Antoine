@@ -11,7 +11,7 @@ include_once('vue_generique.php');
 
 $vueGen = new VueGenerique;
 
-$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "partie"; 
+$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "connexion"; 
 
 switch($module) {
     case 'connexion':
