@@ -17,6 +17,11 @@ class ModPartie {
             case "affiche":
                 $this->cont->affiche_historique();
             break;
+            case "details":
+                $this->cont->affiche_partieDetails();
+            break;
+            default:
+                die("l'action n'existe pas.");
         }
     }
     
