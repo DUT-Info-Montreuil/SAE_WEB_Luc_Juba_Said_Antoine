@@ -34,10 +34,12 @@ class VuePartie extends VueGenerique {
 
     public function affiche_details($partieCourrante) {
         ?>
-        <div class="d-flex flex-column align-items-center">
-            <div class="card mb-3" style="width: 22rem;">
-                <div class="card-body">
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+            <div class="card mb-3" style="width: 32rem;">
+                <div class="card-header">
                     <h5 class="card-title">Partie du : <?php echo $partieCourrante['date']; ?></h5>
+                </div>
+                <div class="card-body">
                     <p class="card-text"> Nombre de vague : <?php echo $partieCourrante['nombre_vague']; ?></p>
                     <p class="card-text"> Ennemis tué : <?php echo $partieCourrante['ennemis_tuer']; ?></p>
                     <p class="card-text"> Nombre tours : <?php echo $partieCourrante['nombre_tours']; ?></p>
