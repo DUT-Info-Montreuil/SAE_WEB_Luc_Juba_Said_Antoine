@@ -18,14 +18,17 @@ class ContTours {
     }
 
     public function rechercheTours() {
-        if (isset($_GET['search']) && !empty($_GET['search'])) {
-            $nom = $_GET['search'];
-            $tours = $this->modele->rechercheTours($nom);
-        } else {
-            $tours = $this->modele->getTours();
-        }
-        $this->vue->afficherTours($tours);
+        // if (isset($_GET['search']) && !empty($_GET['search'])) {
+        //     $searchTerm = $_GET['search'];
+        //     $tours = $this->modele->rechercheToursParNom($searchTerm);
+        //     $this->vue->afficherTours($tours);
+        // } else {
+        //     $this->afficheTours();
+        // }
+        $tour = $this->modele->rechercheToursParNom();
+        $this->vue->afficherDetailsTour($tour);
     }
+    
     
 }
 ?>

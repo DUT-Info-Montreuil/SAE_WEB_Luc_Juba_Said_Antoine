@@ -13,15 +13,21 @@ class ModTours {
 
     public function exec() {
 
+
       switch($this->action){
 
         case "Test" : 
             $this->cont->afficheTours();
             break;
+        case "recherche" : 
+          $this->cont->rechercheTours();
+          break;
         default : 
         die("Action inexistante");
       }
     }
+
+    
     
 }
 

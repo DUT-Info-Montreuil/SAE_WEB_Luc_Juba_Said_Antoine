@@ -3,6 +3,8 @@
 session_start();
 
 include_once('connexion.php');
+include_once('connexion.php');
+
 
 $con = new Connexion();
 $con::init_Connexion();

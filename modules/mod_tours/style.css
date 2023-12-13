@@ -1,0 +1,27 @@
+.popup {
+    display: none;
+    position: fixed;
+    width: 300px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.popup:target {
+    display: block;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
