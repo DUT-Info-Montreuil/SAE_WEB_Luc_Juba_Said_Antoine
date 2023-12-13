@@ -20,6 +20,12 @@ class ModPartie {
             case "details":
                 $this->cont->affiche_partieDetails();
             break;
+            case "listeHebdo":
+                $this->cont->affiche_historiqueHedbo();
+            break;
+            case "listeJournalier":
+                $this->cont->affiche_historiqueJournalier();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
