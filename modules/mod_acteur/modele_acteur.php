@@ -16,8 +16,8 @@ class ModeleActeur extends Connexion{
     public function detail($id){
         $stmt = self::$bdd->prepare('SELECT * FROM Acteurs WHERE id_acteurs = :id');
         $stmt->execute(array('id' => $id));
-        $tabresault=$stmt->fetch();
-        return $tabresault;
+        $tableresultat=$stmt->fetch();
+        return $tableresultat;
 
     }
     

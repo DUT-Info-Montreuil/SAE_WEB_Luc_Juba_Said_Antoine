@@ -13,6 +13,16 @@ class ContActeur {
         $liste = $this->modele_acteur->getListe();
         $this->vue_acteur->affiche_liste($liste);
     }
+    public function details(){
+        if(isset($_GET['id'])){
+            $res = $this->modele_acteur->detail($_GET['id']);
+            $this->vue_acteur->affiche_details_acteur($res);
+        }else{
+            echo "id n'exite pas ";
+        }
+       
+
+    }
 
 
 

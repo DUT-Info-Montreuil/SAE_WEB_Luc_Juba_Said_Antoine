@@ -14,14 +14,8 @@ class ModActeur{
             case 'liste':
                 $this->conts_acteur->liste();
                 break;
-            case 'details':
-                    if (isset($_GET['id'])) {
-                        $id_acteur = $_GET['id'];
-                        $details_acteur = $this->modele_acteur->detail($id_acteur);
-                        $this->vue_acteur->affiche_details_joueur($details_acteur);
-                    } else {
-                        echo "ID du joueur n'est pas passé dans pramettre.";
-                    }
+             case 'details':
+                    $this->conts_acteur->details();
                 break;
             default:
                     echo " <br>Rien n'est passé dans variable action";
