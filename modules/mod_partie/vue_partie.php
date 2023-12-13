@@ -12,7 +12,7 @@ class VuePartie extends VueGenerique {
         ?> 
         <div class="d-flex flex-column align-items-center">
         <h1 class="text-center"> Historique des parties : </h1>
-        <br>
+        <?php echo $this->filtre(); ?>
             <?php 
             foreach($tab as $values) { 
                 ?>
@@ -45,6 +45,27 @@ class VuePartie extends VueGenerique {
                 </div>
             </div>
         </div>
+        <?php
+    }
+
+    public function filtre() {
+        ?>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtre partie
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.php?module=partie&action=listeJournalier">Journalier</a></li>
+                <li><a class="dropdown-item" href="index.php?module=partie&action=listeHebdo">Hebdomadaire</a></li>
+                <li><a class="dropdown-item" href="index.php?module=partie&action=listeMensuelle">Mensuelle</a></li>
+            </ul>
+        </div>
+        <?php
+    }
+
+    public function aucune_partie() {
+        ?>
+        <p> Aucune partie n'a été jouer. </p>
         <?php
     }
 }
