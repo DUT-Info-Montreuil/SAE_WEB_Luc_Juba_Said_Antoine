@@ -26,6 +26,9 @@ class ModPartie {
             case "listeJournalier":
                 $this->cont->affiche_historiqueJournalier();
             break;
+            case "listeMensuelle":
+                $this->cont->affiche_historiqueMensuelle();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
