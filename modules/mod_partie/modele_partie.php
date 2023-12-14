@@ -56,7 +56,7 @@ class ModelePartie extends Connexion {
 
     public function getToursPoser($id) {
         $query = self::$bdd->prepare(
-            "SELECT Acteurs.nom FROM Partie 
+            "SELECT Tours.nom FROM Partie 
                 INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
                 INNER JOIN ToursPosseder ON ToursPosseder.id_partie = Partie.id_partie 
                 INNER JOIN Tours ON Tours.id_tour = ToursPosseder.id_tour
