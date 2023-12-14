@@ -15,14 +15,14 @@ class ModeleTours extends Connexion {
         $result = self::$bdd->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function rechercheTours($nom) {
-        $sql = "SELECT * FROM tours WHERE nom LIKE :nom";
+        $sql = "SELECT * FROM tours WHERE nom = :nom";
         $stmt = self::$bdd->prepare($sql);
-        $stmt->bindValue(':nom', '%' . $nom . '%');
+        $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 
     public function rechercheToursParNom($searchTerm) {
         $sql = self::$bdd->prepare("SELECT * FROM tours WHERE nom LIKE ?");
