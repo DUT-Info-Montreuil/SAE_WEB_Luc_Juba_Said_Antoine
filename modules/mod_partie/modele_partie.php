@@ -36,9 +36,21 @@ class ModelePartie extends Connexion {
     }
 
     public function getPartie($id) {
-        $query = self::$bdd->prepare("SELECT * FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur WHERE pseudo = ? AND id_partie = ?");
+        $query = self::$bdd->prepare("SELECT * FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur WHERE pseudo = ? AND Partie.id_partie = ?");
         $query->execute(array(htmlentities($_SESSION['login']),htmlentities($id)));
         $res = $query->fetch();
+        return $res;
+    }
+
+    public function getActeursApparu($id) {
+        $query = self::$bdd->prepare(
+            "SELECT Acteurs.nom FROM Partie 
+                INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
+                INNER JOIN ActeursApparu ON ActeursApparu.id_partie = Partie.id_partie
+                INNER JOIN Acteurs ON Acteurs.id_acteurs = ActeursApparu.id_acteurs
+                    WHERE pseudo = ? AND Partie.id_partie = ?");
+        $query->execute(array(htmlentities($_SESSION['login']),htmlentities($id)));
+        $res = $query->fetchall();
         return $res;
     }
 
