@@ -38,7 +38,9 @@ class ContPartie {
 
     public function affiche_partieDetails() {
         $partie = $this->modele->getPartie($_GET['id']);
-        $this->vue->affiche_details($partie);
+        $acteursApparu = $this->modele->getActeursApparu($_GET['id']);
+        $toursPoser = $this->modele->getToursPoser($_GET['id']);
+        $this->vue->affiche_details($partie,$acteursApparu,$toursPoser);
     }
 }
 
