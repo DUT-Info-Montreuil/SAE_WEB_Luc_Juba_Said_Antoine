@@ -54,6 +54,17 @@ class ModelePartie extends Connexion {
         return $res;
     }
 
+    public function getToursPoser($id) {
+        $query = self::$bdd->prepare(
+            "SELECT Acteurs.nom FROM Partie 
+                INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
+                INNER JOIN ToursPosseder ON ToursPosseder.id_partie = Partie.id_partie 
+                INNER JOIN Tours ON Tours.id_tour = ToursPosseder.id_tour
+                    WHERE pseudo = ? AND Partie.id_partie = ?");
+        $query->execute(array(htmlentities($_SESSION['login']),htmlentities($id)));
+        $res = $query->fetchall();
+        return $res;
+    }
 }
 
 ?>
