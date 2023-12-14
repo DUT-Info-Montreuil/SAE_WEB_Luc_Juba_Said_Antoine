@@ -1,6 +1,6 @@
 <?php
 // Ce fichier s'occupera de l'affichage des données.
-include_once("vue_generique.php");
+include_once "vue_generique.php";
 
 class VueTours extends VueGenerique {
 
@@ -77,7 +77,7 @@ class VueTours extends VueGenerique {
     public function afficherBarre() {
         ?>
         <div class="mx-auto p-2">
-            <form action="modules/mod_tours/cont_tours.php?action=recherche" method="post">
+            <form action="index.php?module=tours&action=recherche" method="post">
                 <input type="text" name="search" placeholder="Rechercher un tour par nom...">
                 <button type="submit">Rechercher</button>
             </form>

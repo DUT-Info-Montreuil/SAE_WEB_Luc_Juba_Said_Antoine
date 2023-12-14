@@ -23,7 +23,7 @@ class ModTours {
           $this->cont->rechercheTours();
           break;
         default : 
-        die("Action inexistante");
+          die("Action inexistante");
       }
     }
 

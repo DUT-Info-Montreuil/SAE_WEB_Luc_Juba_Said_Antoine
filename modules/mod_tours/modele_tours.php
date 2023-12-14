@@ -1,6 +1,6 @@
 <?php
 
-include_once("connexion.php");
+include_once "connexion.php";
 
 
 class ModeleTours extends Connexion {
@@ -24,17 +24,10 @@ class ModeleTours extends Connexion {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function rechercheToursParNom() {
-        //$sql = "SELECT * FROM tours WHERE nom LIKE :searchTerm";
+    public function rechercheToursParNom($searchTerm) {
         $sql = self::$bdd->prepare("SELECT * FROM tours WHERE nom LIKE ?");
-        $sql->execute(array($_POST['search']));
-        $res = $sql->fetch();
-
-        return $res;
-       // $stmt = self::$bdd->prepare($sql);
-        //$stmt->bindValue(':searchTerm', '%' . $searchTerm . '%', PDO::PARAM_STR);
-        //$stmt->execute();
-        //return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $sql->execute(array('%' . $searchTerm . '%'));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
     
     

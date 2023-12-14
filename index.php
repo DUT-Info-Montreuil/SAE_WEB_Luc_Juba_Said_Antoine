@@ -2,9 +2,7 @@
 
 session_start();
 
-include_once('connexion.php');
-include_once('connexion.php');
-
+include_once "connexion.php";
 
 $con = new Connexion();
 $con::init_Connexion();
@@ -25,10 +23,9 @@ switch($module) {
         include_once('modules/mod_tours/mod_tours.php');
             $contTours = new ModTours();
             $contTours->exec();
-            break;
+    break;
     
     default:
-
        die("Le module n'existe pas.");
 }
 
