@@ -32,7 +32,7 @@ class VuePartie extends VueGenerique {
     <?php
     }
 
-    public function affiche_details($partieCourrante) {
+    public function affiche_details($partieCourrante,$acteursApparu,$toursPoser) {
         ?>
         <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
             <div class="card mb-3" style="width: 32rem;">
@@ -44,6 +44,46 @@ class VuePartie extends VueGenerique {
                     <p class="card-text"> Ennemis tué : <?php echo $partieCourrante['ennemis_tuer']; ?></p>
                     <p class="card-text"> Nombre tours : <?php echo $partieCourrante['nombre_tours']; ?></p>
                     <p class="card-text"> Score : <?php echo $partieCourrante['score']; ?></p>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Acteurs apparu :
+                            </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <?php
+                                        foreach ($acteursApparu as $value) {
+                                            ?> 
+                                                <strong> <?php echo $value['nom']; ?> </strong> 
+                                                <br>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Tours posé :
+                            </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <?php
+                                        foreach ($toursPoser as $value) {
+                                            ?> 
+                                                <strong> <?php echo $value['nom']; ?> </strong> 
+                                                <br>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
