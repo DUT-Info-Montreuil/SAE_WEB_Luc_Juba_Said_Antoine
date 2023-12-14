@@ -107,6 +107,15 @@ class VueTours extends VueGenerique {
             echo "<p>Informations sur la tour non disponibles.</p>";
         }
     }
+
+    public function afficherPopupTour($tour) {
+        echo '<div class="popup">Nom de la tour: ' . $tour['nom'] . '</div>';
+        // Ajouter plus de détails selon votre structure de données
+    }
+
+    public function afficherPopupErreur($message) {
+        echo '<div class="popup">' . $message . '</div>';
+    }
     
 }
 ?>
