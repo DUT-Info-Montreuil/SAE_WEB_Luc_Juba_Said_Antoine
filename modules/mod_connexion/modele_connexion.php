@@ -14,7 +14,6 @@ class ModeleConnexion extends Connexion {
                 htmlspecialchars(password_hash($_POST['mdp'],PASSWORD_DEFAULT))
                 )
             );
-
             if($query->rowCount()==0) {
                 return false;
             }else {
@@ -36,6 +35,9 @@ class ModeleConnexion extends Connexion {
             }
         }
         return false;
+    }
+
+    public function verifMotDePasse(){
     }
 
     public function connexion() {

@@ -10,23 +10,25 @@ class ModJoueur
     public function __construct()
     {
         $this->cont = new ContJoueur;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : "score";
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "classement";
     }
 
     public function exec()
     {
 
-        $this->cont->afficheMenu();
-
         switch ($this->action) {
 
+            case "classement":
             case "score":
+            case "vague":
+                $this->cont->afficheMenu();
                 $this->cont->afficheClass();
+                break;
+            
+            case "profile":
+                $this->cont->afficheProfil();
                 break;
 
-            case "vague":
-                $this->cont->afficheClass();
-                break;
             default:
                 die("L'action n'existe pas.");
         }
