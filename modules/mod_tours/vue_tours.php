@@ -109,9 +109,26 @@ class VueTours extends VueGenerique {
     }
 
     public function afficherPopupTour($tour) {
-        echo '<div class="popup">Nom de la tour: ' . $tour['nom'] . '</div>';
-        // Ajouter plus de détails selon votre structure de données
+        // Vérifier si les informations de la tour sont disponibles
+        if (isset($tour['id_tour'])) {
+            // Affichage des détails de la tour
+            echo '<div class="popup">';
+            echo 'Nom de la tour: ' . htmlspecialchars($tour['nom']) . '<br>';
+            echo 'Prix: ' . htmlspecialchars($tour['prix']) . '<br>';
+            echo 'Projectile: ' . htmlspecialchars($tour['projectile']) . '<br>';
+            echo 'Dégât: ' . htmlspecialchars($tour['degat']) . '<br>';
+    
+            // Affichage de l'image de la tour
+            if (isset($tour['image']) && file_exists($tour['image'])) {
+                echo '<img src="' . htmlspecialchars($tour['image']) . '" alt="Image de la tour ' . htmlspecialchars($tour['nom']) . '"><br>';
+            } else {
+                echo 'Image non disponible.<br>';
+            }
+    
+            echo '</div>';
+        }
     }
+    
 
     public function afficherPopupErreur($message) {
         echo '<div class="popup">' . $message . '</div>';
