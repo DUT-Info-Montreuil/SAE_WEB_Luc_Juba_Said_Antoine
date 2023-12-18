@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    
   </head>
   <body class="d-flex flex-column min-vh-100">
     

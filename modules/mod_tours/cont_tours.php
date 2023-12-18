@@ -2,23 +2,27 @@
 require "modele_tours.php";
 require "vue_tours.php";
 
-class ContTours {
+class ContTours
+{
     private $modele;
     private $vue;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->modele = new ModeleTours();
         $this->vue = new VueTours();
     }
 
-    public function afficheTours() {
+    public function afficheTours()
+    {
         $this->vue->afficherBarre();
         $tours = $this->modele->getTours();
         $this->vue->afficherTours($tours);
     }
 
-    public function rechercheTours() {
-        
+    public function rechercheTours()
+    {
+
         if (isset($_POST['search']) && !empty($_POST['search'])) {
             $nomTour = $_POST['search'];
             $resultatRecherche = $this->modele->rechercheTours($nomTour);
@@ -29,11 +33,11 @@ class ContTours {
             } else {
                 $this->vue->afficherPopupErreur("Tour non trouvée.");
             }
-        
+
+        }
+
+
+
     }
-    
-    
-    
-}
 }
 ?>
