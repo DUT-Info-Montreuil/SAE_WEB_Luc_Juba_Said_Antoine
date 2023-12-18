@@ -15,7 +15,14 @@ class VueMenu {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav style="width: 100%;">
-                        <a class="nav-link" href="index.php?module=partie">Partie</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Partie
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index.php?module=partie">Historique</a></li>
+                            </ul>
+                        </li>
                         <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
                     </div>
                 </div>
