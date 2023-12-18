@@ -18,7 +18,7 @@ class ContTours {
     }
 
     public function rechercheTours() {
-        echo "affiche tour";
+        
         if (isset($_POST['search']) && !empty($_POST['search'])) {
             $nomTour = $_POST['search'];
             $resultatRecherche = $this->modele->rechercheTours($nomTour);

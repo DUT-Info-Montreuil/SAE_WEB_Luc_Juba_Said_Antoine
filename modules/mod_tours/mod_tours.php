@@ -20,9 +20,7 @@ class ModTours {
             $this->cont->afficheTours();
             break;
         case "recherche" : 
-          echo "avant";
           $this->cont->rechercheTours();
-          echo"apres";
           break;
         default : 
           die("Action inexistante");
