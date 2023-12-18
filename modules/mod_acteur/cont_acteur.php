@@ -42,7 +42,7 @@ class ContActeur {
             if ($resultatRecherche) {
                 $this->vue_acteur->afficherPopupActeur($resultatRecherche);
             } else {
-                $this->vue_acteur->afficherPopupErreur("Tour non trouvée.");
+                $this->vue_acteur->afficherPopupErreur("Acteur non trouvée.");
             }
         
     }
