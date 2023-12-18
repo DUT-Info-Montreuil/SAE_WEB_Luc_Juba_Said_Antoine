@@ -31,5 +31,19 @@ class ModeleActeur extends Connexion{
         return $tableresultat;
 
     }
+
+    public function rechercheActeur($nom) {
+        $sql = "SELECT * FROM Acteurs WHERE nom = :nom";
+        $stmt = self::$bdd->prepare($sql);
+        $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function rechercheActeurParNom($searchTerm) {
+        $sql = self::$bdd->prepare("SELECT * FROM Acteurs WHERE nom LIKE ?");
+        $sql->execute(array('%' . $searchTerm . '%'));
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
     
 }

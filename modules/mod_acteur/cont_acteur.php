@@ -32,12 +32,28 @@ class ContActeur {
             echo "id n'existe pas";
         }
     }
+    public function rechercheActeur() {
+        
+        if (isset($_POST['search']) && !empty($_POST['search'])) {
+            $nomActeur = $_POST['search'];
+            $resultatRecherche = $this->modele_acteur->rechercheActeur($nomActeur);
+            //var_dump($resultatRecherche);
 
-    public function affichage_les_pages($pagTotal) {
-        $this->vue_acteur->affichage_les_pages_suivant($pagTotal);
+            if ($resultatRecherche) {
+                $this->vue_acteur->afficherPopupActeur($resultatRecherche);
+            } else {
+                $this->vue_acteur->afficherPopupErreur("Tour non trouvée.");
+            }
+        
     }
 }
 
 
+    public function affichage_les_pages($pagTotal) {
+        $this->vue_acteur->affichage_les_pages_suivant($pagTotal);
+    }
+
+
+}
 
 ?>

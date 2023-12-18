@@ -7,7 +7,6 @@ class VueActeur extends vueGenerique{
     public function __construct()
     {
         $this->pageActuelle=isset($_GET['page']) ? (int)$_GET['page'] : 1;
-       
         parent::__construct();
     }
     public function affiche_liste($elements){
@@ -33,19 +32,43 @@ class VueActeur extends vueGenerique{
 
 
    
-public function affiche_details_acteur($acteur)
-{
+    public function affiche_details_acteur($acteur){
     ?>
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div class="card" style="width: 100%; max-width: 1000px; margin: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
-            <img src="<?php echo htmlspecialchars($acteur['image']); ?>" class="card-img-top" alt="" style="width: 100%; height: auto; object-fit: cover;"> <!-- Ajustement du style de l'image -->
-            <div class="card-body">
-                <h5 class="card-title">Détails de <?php echo htmlspecialchars($acteur['nom']); ?></h5>
-                <p class="card-text">Id: <?php echo htmlspecialchars($acteur['id_acteurs']); ?></p>
-                <p class="card-text">Nom: <?php echo htmlspecialchars($acteur['nom']); ?></p>
-                <p class="card-text">Attaque: <?php echo htmlspecialchars($acteur['attaque']); ?></p>
-                <p class="card-text">Descriptif: <?php echo htmlspecialchars($acteur['descriptif']); ?></p>
-                <a href="index.php?module=mod_acteur&action=liste" class="btn btn-primary">Allez vers liste d'acteur</a>
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 1000px;"> <!-- Centrer la carte et limiter sa largeur -->
+            <div class="row g-0">
+                <div class="col-lg-5 d-flex align-items-center justify-content-center"> <!-- Centrer l'image verticalement et horizontalement dans sa colonne -->
+                    <img src="<?php echo htmlspecialchars($acteur['image']); ?>" class="img-fluid rounded-start" alt="<?php echo htmlspecialchars($acteur['nom']); ?>" style="max-height: 400px;"> <!-- Limiter la hauteur de l'image -->
+                </div>
+                <div class="col-lg-7">
+                    <div class="card-body text-center"> <!-- Centrer le texte dans le corps de la carte -->
+                        <h5 class="card-title">Détails de <?php echo htmlspecialchars($acteur['nom']); ?></h5>
+                        <p class="card-text"><strong>Id:</strong> <?php echo htmlspecialchars($acteur['id_acteurs']); ?></p>
+                        <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($acteur['nom']); ?></p>
+                        <p class="card-text"><strong>Attaque:</strong> <?php echo htmlspecialchars($acteur['attaque']); ?></p>
+                        <p class="card-text"><strong>Descriptif:</strong> <?php echo htmlspecialchars($acteur['descriptif']); ?></p>
+                        <a href="index.php?module=mod_acteur&action=liste" class="btn btn-primary">Retour à la liste des acteurs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+    
+
+
+
+public function affichage_searche_bar() {
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="index.php?module=mod_acteur&action=recherche" method="post" class="d-flex justify-content-center">
+                    <input type="text" name="search" class="form-control" placeholder="Rechercher un acteur par nom...">
+                    <button type="submit" class="btn btn-outline-success">Rechercher</button>
+                </form>
             </div>
         </div>
     </div>
@@ -53,14 +76,12 @@ public function affiche_details_acteur($acteur)
 }
 
 
-public function affichage_searche_bar(){
+    
 
-}
 
 
 
 public function affichage_les_pages_suivant($nombreTotalDePages) {
-    
     $pageActuelle = $this->pageActuelle;
     $pagePrecedente = max(1, $pageActuelle - 1);
     $pageSuivante = min($nombreTotalDePages, $pageActuelle + 1);
@@ -82,6 +103,19 @@ public function affichage_les_pages_suivant($nombreTotalDePages) {
     </nav>
     <?php
 }
+
+
+
+
+
+public function afficherPopupActeur($acteur)
+{
+    $this->affiche_details_acteur($acteur);
+}
+    public function afficherPopupErreur($message)
+    {
+        echo '<div class="popup">' . $message . '</div>';
+    }
 
 
 
