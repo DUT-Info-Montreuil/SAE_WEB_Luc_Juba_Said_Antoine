@@ -54,10 +54,18 @@ class VuePartie extends VueGenerique {
                             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <?php
-                                        foreach ($acteursApparu as $value) {
+                                        if(!empty($acteursApparu)) {
+                                            foreach ($acteursApparu as $value) {
+                                                ?> 
+                                                    <strong> <?php echo $value['nom']; ?> </strong> 
+                                                    <br>
+                                                <?php
+                                            }
+                                        }else {
                                             ?> 
-                                                <strong> <?php echo $value['nom']; ?> </strong> 
-                                                <br>
+                                            <div class="alert alert-info" role="alert">
+                                                <strong> Aucun acteurs n'est apparu durant votre partie. </strong> 
+                                            </div>
                                             <?php
                                         }
                                     ?>
@@ -73,10 +81,19 @@ class VuePartie extends VueGenerique {
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <?php
-                                        foreach ($toursPoser as $value) {
+                                        if(!empty($toursPoser)) {
+                                            foreach ($toursPoser as $value) {
+                                                ?> 
+                                                    <strong> <?php echo $value['nom']; ?> </strong> 
+                                                    <br>
+                                                <?php
+                                            }
+                                        }else{
                                             ?> 
-                                                <strong> <?php echo $value['nom']; ?> </strong> 
-                                                <br>
+                                            <div class="alert alert-info" role="alert">
+                                                <strong> Aucune tourelle n'a été poser durant votre partie. </strong> 
+                                            </div>
+                                                
                                             <?php
                                         }
                                     ?>
