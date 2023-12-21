@@ -19,6 +19,10 @@ switch($module) {
         $modConnexion = new ModConnexion;
         $modConnexion->exec();
     break;
+    case 'mod_acteur':
+        include_once('modules/mod_acteur/mod_acteur.php');
+        $mod_acteur=new ModActeur();
+    break;
     case 'tours':
         include_once('modules/mod_tours/mod_tours.php');
             $contTours = new ModTours();
