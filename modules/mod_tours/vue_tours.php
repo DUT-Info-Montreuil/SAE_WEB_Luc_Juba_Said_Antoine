@@ -102,7 +102,7 @@ class VueTours extends VueGenerique
         // Vérifier si les informations de la tour sont disponibles
         if (isset($tour['id_tour'])) {
             // Affichage des détails de la tour
-            echo '<div class="popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid #ddd; padding: 20px; background-color: white; z-index: 1000; text-align: center;">';  // Ajout de text-align: center
+            echo '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid #ddd; padding: 20px; background-color: white; z-index: 1000; text-align: center;">';  // Ajout de text-align: center
             echo 'Nom de la tour: ' . htmlspecialchars($tour['nom']) . '<br>';
             echo 'Prix: ' . htmlspecialchars($tour['prix']) . '<br>';
             echo 'Description: ' . htmlspecialchars($tour['description']) . '<br>';
@@ -117,7 +117,7 @@ class VueTours extends VueGenerique
 
             // Bouton de retour à la liste des tours, centré
             echo '<div style="text-align: center;">';
-            echo '<button onclick="window.location.href=\'url_de_la_page_des_tours.php\'">Retour à la liste des tours</button>';
+            echo '<button onclick="window.location.href=\'index.php?module=tours\'">Retour à la liste des tours</button>';
             echo '</div>';
 
             echo '</div>';

@@ -22,22 +22,16 @@ class ContTours
 
     public function rechercheTours()
     {
-
         if (isset($_POST['search']) && !empty($_POST['search'])) {
             $nomTour = $_POST['search'];
             $resultatRecherche = $this->modele->rechercheTours($nomTour);
-            //var_dump($resultatRecherche);
 
             if ($resultatRecherche) {
                 $this->vue->afficherPopupTour($resultatRecherche);
             } else {
                 $this->vue->afficherPopupErreur("Tour non trouvée.");
             }
-
         }
-
-
-
     }
 }
 ?>
