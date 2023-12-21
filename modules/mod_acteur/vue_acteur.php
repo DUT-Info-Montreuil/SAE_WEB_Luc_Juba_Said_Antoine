@@ -89,7 +89,7 @@ public function affichage_les_pages_suivant($nombreTotalDePages) {
     <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="index.php?module=mod_acteur&action=liste&page=<?php echo $pagePrecedente; ?>">Avant</a>
+                <a class="page-link" href="index.php?module=mod_acteur&action=liste&page=<?php echo $pagePrecedente; ?>">Précédent</a>
             </li>
             <?php for ($i = 1; $i <= $nombreTotalDePages; $i++): ?>
                 <li class="page-item <?php echo $i === $pageActuelle ? 'active' : ''; ?>">
@@ -116,10 +116,6 @@ public function afficherPopupActeur($acteur)
     {
         echo '<div class="popup">' . $message . '</div>';
     }
-
-
-
-
 
 }
 ?>

@@ -37,7 +37,7 @@ class ContActeur {
         if (isset($_POST['search']) && !empty($_POST['search'])) {
             $nomActeur = $_POST['search'];
             $resultatRecherche = $this->modele_acteur->rechercheActeur($nomActeur);
-            //var_dump($resultatRecherche);
+
 
             if ($resultatRecherche) {
                 $this->vue_acteur->afficherPopupActeur($resultatRecherche);
