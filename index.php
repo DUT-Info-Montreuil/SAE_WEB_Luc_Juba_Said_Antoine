@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once('connexion.php');
+include_once "connexion.php";
 
 $con = new Connexion();
 $con::init_Connexion();
@@ -19,6 +19,12 @@ switch($module) {
         $modConnexion = new ModConnexion;
         $modConnexion->exec();
     break;
+    case 'tours':
+        include_once('modules/mod_tours/mod_tours.php');
+            $contTours = new ModTours();
+            $contTours->exec();
+    break;
+    
     case 'partie':
         include_once('modules/mod_partie/mod_partie.php');
         $modPartie = new ModPartie;
@@ -35,5 +41,7 @@ include_once("composants/menu/comp_menu.php");
 $compMenu = new CompMenu;
 
 include_once('template.php');
+
+
 
 ?>
