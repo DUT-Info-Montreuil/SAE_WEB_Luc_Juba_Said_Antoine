@@ -8,7 +8,7 @@ class ModeleJoueur extends Connexion {
     public function __construct(){}
 
 
-    public function getDes3ClassementJoueur($classementType) {
+    public function getDesClassementJoueur($classementType) {
 
         $orderBy = ($classementType === 'score') ? 'score' : 'nombre_vague';
     
@@ -16,8 +16,7 @@ class ModeleJoueur extends Connexion {
         FROM Partie 
         INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
         GROUP BY Utilisateur.pseudo 
-        ORDER BY max_value DESC
-        LIMIT 3");
+        ORDER BY max_value DESC");
     
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);

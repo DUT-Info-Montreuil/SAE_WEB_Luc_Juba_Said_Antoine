@@ -17,18 +17,21 @@ class ContJoueur {
         $this->vue->filtreClassement();
     }
 
-    public function afficheClass(){
-        $joueurs = $this->modele->getDes3ClassementJoueur($_GET['action']);
-        $this->vue->afficheClassement($joueurs);
+    public function affiche3Class(){
+        $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
+        $this->vue->affiche3Classement($joueurs);
     }
+
+    public function afficheClass(){
+       $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
+       $this->vue->afficheClassement($joueurs);
+    }
+
 
     public function afficheProfil(){
         $joueur = $this->modele->getInfoProfil();
         $this->vue->profil($joueur);
     }
-
-   
-
 
 
 }

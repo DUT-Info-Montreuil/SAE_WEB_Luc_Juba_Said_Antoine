@@ -41,7 +41,7 @@ class VueJoueur extends VueGenerique
                 <br> 
                 <br>               
                 <label for="profile_pic">Photo de profil :</label><br>
-                <img src="<?= htmlspecialchars($joueur['photo_de_profile'])?>" class="img-fluid rounded-start" alt="image">
+                <img src="<?= htmlspecialchars($joueur[0]['photo_de_profile'])?>" class="img-fluid rounded-start" alt="image">
                 <div class="input-group mb-3">
                     <label class="btn btn-primary" for="inputGroupFile01">Modifier</label>
                     <input type="file" class="form-control" id="inputGroupFile01" style="display: none" accept=".png, .jpg, .jpeg">                    </div>
@@ -104,11 +104,26 @@ class VueJoueur extends VueGenerique
         <?php
     }
 
-    public function afficheClassement($joueurs)
+    public function affiche3Classement($joueurs)
     {
+        $nombreAffiche = 0;
+            
         foreach ($joueurs as $j) {
-            echo "<br>" . $j['pseudo'] . "  " . $j['max_value'] ;
+            if ($nombreAffiche < 3) {
+                echo $j['pseudo'] . "  " . $j['max_value']."<br>";
+                $nombreAffiche++;
+            } 
         }
+            echo "<a href='index.php?module=joueur&action=affichePlusClassement' class='btn btn-primary'>Afficher Plus</a>";
+    }
+
+    public function afficheClassement($joueurs){
+    
+        foreach ($joueurs as $j) {
+            echo "<br>" . $j['pseudo'] . "  " . $j['max_value'];
+        }
+    
+        echo "<br> <a href='index.php' class='btn btn-primary'>Quitter</a>";
     }
 
 }

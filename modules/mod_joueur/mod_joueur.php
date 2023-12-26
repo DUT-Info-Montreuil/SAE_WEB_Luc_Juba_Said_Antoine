@@ -22,9 +22,14 @@ class ModJoueur
             case "score":
             case "vague":
                 $this->cont->afficheMenu();
+                $this->cont->affiche3Class();
+                break;
+
+            case "affichePlusClassement" :
+                $this->cont->afficheMenu();
                 $this->cont->afficheClass();
                 break;
-            
+
             case "profile":
                 $this->cont->afficheProfil();
                 break;
