@@ -34,6 +34,13 @@ switch($module) {
         $modPartie = new ModPartie;
         $modPartie->exec();
     break;
+    case 'feedback':
+        include_once('modules/mod_feedback/cont_feedback.php');
+        $contFeedback = new ContFeedback();
+        $contFeedback->exec();
+    break;
+    
+
     default:
        die("Le module n'existe pas.");
 }

@@ -24,6 +24,7 @@ class VueMenu {
                             </ul>
                         </li>
                         <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
+                        <a class="nav-link" href="index.php?module=feedback">FeedBack</a> 
                     </div>
                 </div>
                 </div>
