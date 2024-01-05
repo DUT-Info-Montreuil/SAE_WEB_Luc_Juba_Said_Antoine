@@ -23,6 +23,7 @@ class VueMenu {
                                 <li><a class="dropdown-item" href="index.php?module=partie">Historique</a></li>
                             </ul>
                         </li>
+                        <a class="nav-link" href="index.php?module=joueur">Joueur</a> 
                         <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
                     </div>
                 </div>
