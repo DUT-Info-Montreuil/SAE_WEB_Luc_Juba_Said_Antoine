@@ -7,13 +7,16 @@ class ModJoueur {
     private $action,$cont;
 
     public function __construct(){
-        $this->cont = new ContPartie;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : "default"; 
+        $this->cont = new ContJoueur;
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "stat"; 
     }
 
     public function exec() {
 
         switch($this->action) {
+            case "stat":
+                $this->cont->affiche_stat();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
