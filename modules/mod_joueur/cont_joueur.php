@@ -27,11 +27,17 @@ class ContJoueur {
        $this->vue->afficheClassement($joueurs);
     }
 
+    
+    public function modifierProfile(){
+        $this->modele->modificationMotDePasse();
+    }
 
     public function afficheProfil(){
         $joueur = $this->modele->getInfoProfil();
         $this->vue->profil($joueur);
     }
+
+    
 
 
 }

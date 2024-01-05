@@ -36,21 +36,23 @@ class VueJoueur extends VueGenerique
 
             <h1>Profil Utilisateur</h1>
 
-            <form action="index.php?module=joueur&action=sauvegarde.php" method="post">
-                <label for="username">Pseudo d’utilisateur : </label><?php echo $joueur[0]["pseudo"];?>
+            <form action="index.php?module=joueur&action=sauvegarde" method="post">
+                <label for="username">Pseudo d’utilisateur : </label> <br> <?php echo $joueur[0]["pseudo"];?>
                 <br> 
                 <br>               
-                <label for="profile_pic">Photo de profil :</label><br>
-                <img src="<?= htmlspecialchars($joueur[0]['photo_de_profile'])?>" class="img-fluid rounded-start" alt="image">
+                <label for="profile_pic">Photo de profile :</label><br>
+
+                <img src="<?php echo $joueur[0]['photo_de_profile'];?>" class="img-fluid rounded-start" alt="<?php echo $joueur[0]['photo_de_profile'];?>">
                 <div class="input-group mb-3">
                     <label class="btn btn-primary" for="inputGroupFile01">Modifier</label>
-                    <input type="file" class="form-control" id="inputGroupFile01" style="display: none" accept=".png, .jpg, .jpeg">                    </div>
+                    <input type="file" class="form-control" id="inputGroupFile01" style="display: none" accept=".png, .jpg, .jpeg">
+                </div>
+
+               
                 <label for="password">Mot de passe :</label><br>
                 <input type="texte" disabled id="password" name="password" value="******"> 
                 <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    modifier
-                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >modifier</button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -85,8 +87,8 @@ class VueJoueur extends VueGenerique
                                    </div>
                                     </div>
                                     <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">QUITTER</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">CONTINUER</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">QUITTER</button>
+                                    <input type="submit" class="btn btn-primary" value="Sauvegarder">
                                 </div>
                                     </div>
                                 </div>
@@ -95,8 +97,7 @@ class VueJoueur extends VueGenerique
                 <br>
                 <label for="description">Description :</label><br>
                 <textarea id="description" disabled name="description" value = "<?php echo $joueur[0]["description"] ?>"></textarea><br><br>
-                <a href="index.php"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">QUITTER</button></a>
-                <input type="submit" class="btn btn-primary" value="Sauvegarder">
+                <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">QUITTER</button></a>
             </form>
 
             </body>
