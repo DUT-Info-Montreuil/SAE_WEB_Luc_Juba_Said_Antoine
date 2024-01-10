@@ -45,6 +45,21 @@ class ModeleJoueur extends Connexion {
         return null;
     }
     
+    public function getStatMoyenneGlobale() {
+        $query = self::$bdd->prepare("SELECT ROUND(AVG(ennemis_tuer), 0) AS Moyenne_tuer,ROUND(AVG(nombre_vague), 0) AS Moyenne_vague,MONTH(date) AS mois_num,MONTHNAME(date) AS mois FROM Partie GROUP BY mois_num, mois  ORDER BY mois_num");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getStatMoyenneJoueur() {
+        if(isset($_SESSION["login"])) {
+            $query = self::$bdd->prepare("SELECT ROUND(AVG(ennemis_tuer), 0) AS Moyenne_tuer_joueur,ROUND(AVG(nombre_vague),0) as Moyenne_vague_joueur,MONTH(date) AS mois_num,MONTHNAME(date) AS mois FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
+            WHERE pseudo = ? GROUP BY mois_num, mois ORDER BY `mois_num`");
+            $query->execute(array(htmlentities($_SESSION["login"])));
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return null;
+    }
 }
 
 ?>
