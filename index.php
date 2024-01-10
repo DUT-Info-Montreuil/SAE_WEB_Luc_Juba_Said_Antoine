@@ -28,7 +28,11 @@ switch($module) {
             $contTours = new ModTours();
             $contTours->exec();
     break;
-    
+    case 'sucess':
+        include_once('modules/mod_succes/mod_succes.php');
+            $contSucces = new ModSucces();
+            $contSucces->exec();
+    break;
     case 'partie':
         include_once('modules/mod_partie/mod_partie.php');
         $modPartie = new ModPartie;
