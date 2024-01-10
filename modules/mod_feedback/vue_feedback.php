@@ -3,7 +3,7 @@ include_once "vue_generique.php";
 
 class VueFeedback {
     public function afficherFormulaire() {
-        echo '<form action="?module=feedback" method="post">
+        echo '<form action="index.php?module=feedback&action=inserer" method="post">
                 <label for="nom_utilisateur">Nom d\'utilisateur:</label>
                 <input type="text" id="nom_utilisateur" name="nom_utilisateur" required><br>
                 

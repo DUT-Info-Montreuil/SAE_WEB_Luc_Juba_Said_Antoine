@@ -12,9 +12,17 @@ class ContFeedback {
     }
 
     public function exec() {
+       // session_start(); // Assurez-vous que la session est démarrée
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Traitement du formulaire de feedback
-            $this->modele->soumettreFeedback($_POST['nom_utilisateur'], $_POST['email'], $_POST['commentaire']);
+            // Récupération de l'id_utilisateur depuis la session
+            $idUtilisateur = isset($_SESSION['id_utilisateur']) ? $_SESSION['id_utilisateur'] : null;
+
+
+            if ($idUtilisateur&&($_GET['action'] == 'inserer' && $_SERVER['REQUEST_METHOD'] === 'POST')) {
+                // Appel de la méthode soumettreFeedback avec les données POST
+                $this->modele->soumettreFeedback($idUtilisateur, $_POST['nom_utilisateur'], $_POST['email'], $_POST['commentaire']);
+            }
         }
 
         $feedbacks = $this->modele->obtenirFeedbacks();
@@ -23,7 +31,5 @@ class ContFeedback {
         $vue->afficherFormulaire();
     }
 }
-
-
 
 ?>

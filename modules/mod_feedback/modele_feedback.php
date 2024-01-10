@@ -11,8 +11,8 @@ class ModeleFeedback {
         $this->modFeedback = new ModFeedback();
     }
 
-    public function soumettreFeedback($nomUtilisateur, $email, $commentaire) {
-        $this->modFeedback->insererFeedback($nomUtilisateur, $email, $commentaire);
+    public function soumettreFeedback($idUtilisateur, $nomUtilisateur, $email, $commentaire) {
+        $this->modFeedback->insererFeedback($idUtilisateur, $nomUtilisateur, $email, $commentaire);
     }
 
     public function obtenirFeedbacks() {
