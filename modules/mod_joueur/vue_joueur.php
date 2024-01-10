@@ -51,7 +51,33 @@ class VueJoueur extends VueGenerique {
             </div>
         </div>
         <?php
+        $this->affiche_graph();
     }
+
+    public function affiche_sans_stat() {
+        echo "Vous n'avez aucune donnée de jeu enregistrer.";
+    }
+
+ public function affiche_graph() {
+    ?>
+        <div class="text-center m-5">
+            <h1>Graphique :</h1>
+            <div class="dropdown m-4">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Choisir
+                </button>
+                <ul class="dropdown-menu ">
+                    <li><button type="button" class="dropdown-item" id="ennemis-tues">Ennemis tués</button></li>
+                    <li><button type="button" class="dropdown-item" id="nombre-vague">Nombre de vagues</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center mt-4" style="width: 60%;">
+            <canvas id="myChart" style="height: 400px;"></canvas>
+        </div>
+    <?php
+}
+
 }
 
 ?>
