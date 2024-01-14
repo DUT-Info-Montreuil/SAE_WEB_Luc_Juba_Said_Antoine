@@ -55,7 +55,13 @@ class VueJoueur extends VueGenerique {
     }
 
     public function affiche_sans_stat() {
-        echo "Vous n'avez aucune donnée de jeu enregistrer.";
+        ?>
+            <div class="text-center m-5">
+                <div class="alert alert-info" role="alert">
+                    Vous n'avez aucune donnée de jeu enregistrer.
+                </div>
+            </div>
+        <?php
     }
 
  public function affiche_graph() {
@@ -69,6 +75,8 @@ class VueJoueur extends VueGenerique {
                 <ul class="dropdown-menu ">
                     <li><button type="button" class="dropdown-item" id="ennemis-tues">Ennemis tués</button></li>
                     <li><button type="button" class="dropdown-item" id="nombre-vague">Nombre de vagues</button></li>
+                    <li><button type="button" class="dropdown-item" id="nombre-tours">Nombre de tourelles posé</button></li>
+                    <li><button type="button" class="dropdown-item" id="score">Score</button></li>
                 </ul>
             </div>
         </div>
