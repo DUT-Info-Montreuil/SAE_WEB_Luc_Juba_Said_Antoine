@@ -3,6 +3,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
 
         let myChart = null;
         let labels, dataGlobal, dataJoueur, titre;
+        let typeGraph = "bar";
 
         afficheGraph('Moyenne_tuer');
 
@@ -20,6 +21,18 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
 
         $('#score').on('click', function() {
             afficheGraph('Moyenne_score');
+        });
+
+        $('#barre').on('change', function(e) {
+            e.preventDefault();
+            typeGraph = "bar";
+            updateChart();
+        });
+
+        $('#ligne').on('change', function(e) {
+            e.preventDefault();
+            typeGraph = "line";
+            updateChart();
         });
 
         function afficheGraph(type) {
@@ -71,7 +84,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                 }
 
                 myChart = new Chart(ctx, {
-                    type: "bar",
+                    type: typeGraph,
                     data: {
                         labels: labels,
                         datasets: [

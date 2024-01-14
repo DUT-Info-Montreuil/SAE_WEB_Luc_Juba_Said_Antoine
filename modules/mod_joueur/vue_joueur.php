@@ -64,28 +64,45 @@ class VueJoueur extends VueGenerique {
         <?php
     }
 
- public function affiche_graph() {
-    ?>
-        <div class="text-center m-5">
-            <h1>Graphique :</h1>
-            <div class="dropdown m-4">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Choisir
-                </button>
-                <ul class="dropdown-menu ">
-                    <li><button type="button" class="dropdown-item" id="ennemis-tues">Ennemis tués</button></li>
-                    <li><button type="button" class="dropdown-item" id="nombre-vague">Nombre de vagues</button></li>
-                    <li><button type="button" class="dropdown-item" id="nombre-tours">Nombre de tourelles posé</button></li>
-                    <li><button type="button" class="dropdown-item" id="score">Score</button></li>
-                </ul>
+    public function affiche_graph() {
+        ?>
+            <div class="text-center m-5">
+                <h1>Graphique :</h1>
+                <div class="dropdown m-4">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Choisir
+                    </button>
+                    <ul class="dropdown-menu ">
+                        <li><button type="button" class="dropdown-item" id="ennemis-tues">Ennemis tués</button></li>
+                        <li><button type="button" class="dropdown-item" id="nombre-vague">Nombre de vagues</button></li>
+                        <li><button type="button" class="dropdown-item" id="nombre-tours">Nombre de tourelles posé</button></li>
+                        <li><button type="button" class="dropdown-item" id="score">Score</button></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="container text-center mt-4" style="width: 60%;">
-            <canvas id="myChart" style="height: 400px;"></canvas>
-        </div>
-    <?php
-}
+            <div class="container text-center mt-4" style="width: 60%;">
+                <canvas id="myChart" style="height: 400px;"></canvas>
+            </div>
+            <?php $this->choix_Graph(); ?>
+        <?php
+       
+    }
 
+    public function choix_Graph() {
+        ?>
+            <div class="text-center m-5">
+                <p> Type de graphique : </p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="barre" value="option1" checked>
+                    <label class="form-check-label" for="inlineRadio1">Barre</label>
+                </div>
+                <div class="form-check form-check-inline">   
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ligne" value="option2"> 
+                    <label class="form-check-label" for="inlineRadio2">Ligne</label>
+                </div>
+            </div>
+        <?php
+    }
 }
 
 ?>
