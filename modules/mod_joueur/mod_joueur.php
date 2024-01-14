@@ -17,6 +17,9 @@ class ModJoueur {
             case "stat":
                 $this->cont->affiche_stat();
             break;
+            case "moyenne":
+                $this->cont->moyenne();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
