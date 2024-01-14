@@ -2,6 +2,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
     $(document).ready(function() {
 
         let myChart = null;
+        let labels, dataGlobal, dataJoueur, titre;
 
         afficheGraph('Moyenne_tuer');
 
@@ -27,8 +28,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    const labels = data.statGlobale.map(entry => entry.mois);
-                    let dataGlobal, dataJoueur,titre;
+                    labels = data.statGlobale.map(entry => entry.mois);
 
                     switch (type) {
                         case 'Moyenne_tuer':
@@ -54,8 +54,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                         default:
                             break;
                     }
-                    
-                    updateChart(labels, dataGlobal, dataJoueur, titre);
+                    updateChart();
                 },
                 error: function(error) {
                     console.log('Erreur lors de la récupération des données : ', error);
@@ -63,7 +62,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
             });
         }
 
-        function updateChart(labels, dataGlobal, dataJoueur,titre) {
+        function updateChart() {
             const ctx = document.getElementById('myChart');
 
             if (ctx) {
