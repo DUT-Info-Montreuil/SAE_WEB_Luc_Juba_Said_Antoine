@@ -30,24 +30,31 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                     const labels = data.statGlobale.map(entry => entry.mois);
                     let dataGlobal, dataJoueur,titre;
 
-                    if (type === 'Moyenne_tuer') {
-                        dataGlobal = data.statGlobale.map(entry => entry.Moyenne_tuer);
-                        dataJoueur = data.statJoueur.map(entry => entry.Moyenne_tuer_joueur);
-                        titre = "Moyenne des ennemis tué";
-                    } else if (type === 'Moyenne_vague') {
-                        dataGlobal = data.statGlobale.map(entry => entry.Moyenne_vague);
-                        dataJoueur = data.statJoueur.map(entry => entry.Moyenne_vague_joueur);
-                        titre = "Moyenne des vagues";
-                    }else if (type === 'Moyenne_tour') {
-                        dataGlobal = data.statGlobale.map(entry => entry.Moyenne_tours);
-                        dataJoueur = data.statJoueur.map(entry => entry.Moyenne_tours_joueur);
-                        titre = "Moyenne des tours posé";
-                    }else if (type === 'Moyenne_score') {
-                        dataGlobal = data.statGlobale.map(entry => entry.Moyenne_score);
-                        dataJoueur = data.statJoueur.map(entry => entry.Moyenne_score_joueur);
-                        titre = "Moyenne des scores";
+                    switch (type) {
+                        case 'Moyenne_tuer':
+                            dataGlobal = data.statGlobale.map(entry => entry.Moyenne_tuer);
+                            dataJoueur = data.statJoueur.map(entry => entry.Moyenne_tuer_joueur);
+                            titre = "Moyenne des ennemis tués";
+                            break;
+                        case 'Moyenne_vague':
+                            dataGlobal = data.statGlobale.map(entry => entry.Moyenne_vague);
+                            dataJoueur = data.statJoueur.map(entry => entry.Moyenne_vague_joueur);
+                            titre = "Moyenne des vagues";
+                            break;
+                        case 'Moyenne_tour':
+                            dataGlobal = data.statGlobale.map(entry => entry.Moyenne_tours);
+                            dataJoueur = data.statJoueur.map(entry => entry.Moyenne_tours_joueur);
+                            titre = "Moyenne des tours posés";
+                            break;
+                        case 'Moyenne_score':
+                            dataGlobal = data.statGlobale.map(entry => entry.Moyenne_score);
+                            dataJoueur = data.statJoueur.map(entry => entry.Moyenne_score_joueur);
+                            titre = "Moyenne des scores";
+                            break;
+                        default:
+                            break;
                     }
-
+                    
                     updateChart(labels, dataGlobal, dataJoueur, titre);
                 },
                 error: function(error) {
@@ -65,7 +72,7 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                 }
 
                 myChart = new Chart(ctx, {
-                    type: 'bar',
+                    type: "bar",
                     data: {
                         labels: labels,
                         datasets: [
