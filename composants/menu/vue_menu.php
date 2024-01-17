@@ -24,6 +24,8 @@ class VueMenu {
                             </ul>
                         </li>
                         <a class="nav-link" href="index.php?module=joueur">Joueur</a> 
+                        <a class="nav-link" href="index.php?module=joueur&action=classement">Classement</a> 
+                        <a class="nav-link" href="index.php?module=joueur&action=profile">Profile</a> 
                         <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
                     </div>
                 </div>

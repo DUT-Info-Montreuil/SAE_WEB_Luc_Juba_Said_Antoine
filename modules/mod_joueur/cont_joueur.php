@@ -39,6 +39,26 @@ class ContJoueur {
         exit();
     }
       
-}
+    public function afficheMenu()
+    {
+        $this->vue->filtreClassement();
+    }
 
-?>
+    public function affiche3Class(){
+        $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
+        $this->vue->affiche3Classement($joueurs);
+    }
+
+    public function afficheClass(){
+       $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
+       $this->vue->afficheClassement($joueurs);
+    }
+
+
+    public function afficheProfil(){
+        $joueur = $this->modele->getInfoProfil();
+        $this->vue->profil($joueur);
+    }
+
+
+}

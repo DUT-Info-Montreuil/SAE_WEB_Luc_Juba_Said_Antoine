@@ -20,11 +20,24 @@ class ModJoueur {
             case "moyenne":
                 $this->cont->moyenne();
             break;
+            case "classement":
+            case "score":
+            case "vague":
+                $this->cont->afficheMenu();
+                $this->cont->affiche3Class();
+            break;
+    
+            case "affichePlusClassement" :
+                $this->cont->afficheMenu();
+                $this->cont->afficheClass();
+            break;
+            case "profile":
+                $this->cont->afficheProfil();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
     }
     
 }
-
 ?>
