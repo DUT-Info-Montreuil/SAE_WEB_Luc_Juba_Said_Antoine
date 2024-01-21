@@ -10,8 +10,12 @@ class ContSucces{
         $this->vue_sucess = new VueSucces();
 
     }
-    public function affichage_page_principale() {
-            $this->vue_sucess->affiche_la_page_succes();
+    public function affichage_page_principale_conts() {
+            $this->modele_sucess->obtenirStatsUtilisateur();
+            $tableau=$this->modele_sucess->obtenirResultats_tableau();
+            $this->vue_sucess->affiche_la_page_succes_vue($tableau);
     }
+    
+    
 
 }
