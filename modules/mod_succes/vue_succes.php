@@ -1,54 +1,74 @@
 <?php
+    require_once "vue_generique.php";
+   
 
-class VueSucces{
+class VueSucces extends vueGenerique{
     public function __construct(){
-        
+        parent::__construct();
     }
     
 
-    public function affiche_la_page_succes() {
-        $realisations = [
-            ['titre' => 'Premier Ennemi', 'accompli' => true],
-            ['titre' => 'Dix Ennemis', 'accompli' => true],
-            ['titre' => 'Vingt Ennemis', 'accompli' => false],
-        ];
+    public function affiche_la_page_succes_vue($tableau) {
+
+        $realisations = $this->verif_le_succes($tableau);
         
+
+        
+        $accomplies = array_sum(array_column($realisations, 'accompli'));
+        $total = count($realisations);
+        $pourcentageAccompli = $total > 0 ? ($accomplies / $total * 100) : 0;
+        unset($realisation);
         ?>
-        <div class="container mt-4">
+        <div class="container-fluid mt-4">
             <h2 class="text-center">Vos succès</h2>
             <div class="progress mb-3">
-                <div class="progress-bar" style="width:10%">10%</div> <!-- Mettez à jour le pourcentage en fonction des réalisations de l'utilisateur -->
+                <div class="progress-bar" style="width:<?php echo $pourcentageAccompli; ?>%"><?php echo round($pourcentageAccompli); ?>%</div>
             </div>
             <div class="row">
-                <?php foreach ($realisations as $realisation): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
+                <?php foreach ($realisations as $index => $realisation): ?>
+                    <div class="col-lg-4 col-md-6 col-sm-6 mb-3 custom-col">
+                        <div class="card h-100 custom-card">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo htmlspecialchars($realisation['titre']); ?></h5>
-                                <p class="card-text">Condition pour le succès</p>
-                                <p class="card-text">Status : <?php echo $realisation['accompli'] ? 'accompli' : 'inachevé'; ?></p>
+                                <h5 class="card-title text-truncate" title="<?php echo htmlspecialchars($realisation['titre']); ?>">
+                                    <?php echo htmlspecialchars($realisation['titre']); ?>
+                                </h5>
+                                <p class="card-text">Statut : <?php echo isset($tableau[$index]) && $tableau[$index] ? 'accompli' : 'inachevé'; ?></p>
                             </div>
-                            <?php if (!$realisation['accompli']): ?>
-                                <div class="card-footer">
-                                    <img src="chemin_vers_image_cadenas.png" alt="Cadenas" class="img-fluid">
-                                </div>
-                            <?php endif; ?>
+                            <div class="card-footer">
+                                <img src="modules/mod_succes/images/<?php echo isset($tableau[$index]) && $tableau[$index] ? $realisation['image_unlocked'] : $realisation['image_locked']; ?>" 
+                                     alt="Succès" 
+                                     class="img-fluid custom-img">
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
-                </ul>
-            </nav>
         </div>
         <?php
     }
     
+    public function verif_le_succes($tableau_verif_succes){
+
+        $realisations = [
+            ['titre' => 'Vingt Ennemis Tués Dans 5 Vagues', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'vingtennemistue.png'],
+            ['titre' => 'Obtient 1000 Points En Une Partie', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'piece1000.png'],
+            ['titre' => 'Cinquante Ennemis Abattus Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'cinquatennemistuesansdegat.png'],
+            ['titre' => 'Gangé avec Quatre tours Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'gagneravec4tours.png'],
+            ['titre' => 'Dix Vagues Survécues Sans Power-Ups', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'bandit.jpg'],
+            ['titre' => 'Tous Les Power-Ups Collectés en Une Partie', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'tous_powerups.png'],
+            
+        ];
+        foreach ($realisations as $index => &$realisation) {
+            if (isset($tableau_verif_succes[$index])) {
+                $realisation['accompli'] = $tableau_verif_succes[$index];
+            } else {
+                $realisation['accompli'] = false;
+            }
+        }
+        
+        return  $realisations;
+    }
+
     
 
 }
