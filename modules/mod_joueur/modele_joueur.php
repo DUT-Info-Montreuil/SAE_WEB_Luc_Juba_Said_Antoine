@@ -14,24 +14,24 @@ class ModeleJoueur extends Connexion {
                                      ROUND(AVG(ennemis_tuer),2) AS moyenne_tuer,
                                      ROUND(AVG(nombre_ennemis),2) AS moyenne_ennemis,
                                      ROUND(AVG(nombre_tours),2) AS moyenne_tours 
-                             FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE Partie.id_utilisateur = ?";
+                             FROM Partie  
+                             WHERE id_utilisateur = ?";
                     break;
                 case 'max':
                     $sql = "SELECT MAX(nombre_vague) AS max_vague,
                                    MAX(ennemis_tuer) AS max_tuer,
                                    MAX(nombre_ennemis) AS max_ennemis,
                                    MAX(nombre_tours) AS max_tours 
-                             FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE Partie.id_utilisateur = ?";
+                             FROM Partie 
+                             WHERE id_utilisateur = ?";
                     break;
                 case 'min':
                     $sql = "SELECT MIN(nombre_vague) AS min_vague,
                                    MIN(ennemis_tuer) AS min_tuer,
                                    MIN(nombre_ennemis) AS min_ennemis,
                                    MIN(nombre_tours) AS min_tours 
-                             FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE Partie.id_utilisateur = ?";
+                             FROM Partie 
+                             WHERE id_utilisateur = ?";
                     break;
                 default:
                     return null;
@@ -67,8 +67,8 @@ class ModeleJoueur extends Connexion {
                 ROUND(AVG(nombre_tours), 0) AS Moyenne_tours_joueur,
                 ROUND(AVG(score), 0) AS Moyenne_score_joueur,
                 MONTH(date) AS mois_num,MONTHNAME(date) AS mois 
-            FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-            WHERE Partie.id_utilisateur = ? GROUP BY mois_num, mois ORDER BY `mois_num`");
+            FROM Partie
+            WHERE id_utilisateur = ? GROUP BY mois_num, mois ORDER BY `mois_num`");
             $query->execute(array(htmlentities($_SESSION["login"]['id_u'])));
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
