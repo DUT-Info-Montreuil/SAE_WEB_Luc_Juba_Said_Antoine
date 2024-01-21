@@ -60,3 +60,32 @@
     width: 100%;
     height: auto;
 }
+
+
+.scrolling-title-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.scrolling-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.custom-col {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.custom-card {
+    margin: 10px;
+    width: calc(100% - 20px); 
+}
+
+.custom-img {
+    width: 99%; 
+    height: auto; 
+}
+
