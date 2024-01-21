@@ -15,7 +15,7 @@ class ModeleJoueur extends Connexion {
                                      ROUND(AVG(nombre_ennemis),2) AS moyenne_ennemis,
                                      ROUND(AVG(nombre_tours),2) AS moyenne_tours 
                              FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE pseudo = ?";
+                             WHERE Partie.id_utilisateur = ?";
                     break;
                 case 'max':
                     $sql = "SELECT MAX(nombre_vague) AS max_vague,
@@ -23,7 +23,7 @@ class ModeleJoueur extends Connexion {
                                    MAX(nombre_ennemis) AS max_ennemis,
                                    MAX(nombre_tours) AS max_tours 
                              FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE pseudo = ?";
+                             WHERE Partie.id_utilisateur = ?";
                     break;
                 case 'min':
                     $sql = "SELECT MIN(nombre_vague) AS min_vague,
@@ -31,14 +31,14 @@ class ModeleJoueur extends Connexion {
                                    MIN(nombre_ennemis) AS min_ennemis,
                                    MIN(nombre_tours) AS min_tours 
                              FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-                             WHERE pseudo = ?";
+                             WHERE Partie.id_utilisateur = ?";
                     break;
                 default:
                     return null;
             }
     
             $query = self::$bdd->prepare($sql);
-            $query->execute(array(htmlentities($_SESSION["login"])));
+            $query->execute(array(htmlentities($_SESSION["login"]['id_u'])));
             return $query->fetch();
         }
     
@@ -68,8 +68,8 @@ class ModeleJoueur extends Connexion {
                 ROUND(AVG(score), 0) AS Moyenne_score_joueur,
                 MONTH(date) AS mois_num,MONTHNAME(date) AS mois 
             FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur 
-            WHERE pseudo = ? GROUP BY mois_num, mois ORDER BY `mois_num`");
-            $query->execute(array(htmlentities($_SESSION["login"])));
+            WHERE Partie.id_utilisateur = ? GROUP BY mois_num, mois ORDER BY `mois_num`");
+            $query->execute(array(htmlentities($_SESSION["login"]['id_u'])));
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         return null;
@@ -91,16 +91,16 @@ class ModeleJoueur extends Connexion {
 
 
     public function getInfoProfil(){
-        $pseudo = $_SESSION['login'];
-        $query = self::$bdd->prepare("SELECT * FROM Utilisateur WHERE pseudo = ?");
-        $query->execute(array($pseudo));
+        $id_utilisateur = $_SESSION['login']['id_u'];
+        $query = self::$bdd->prepare("SELECT * FROM Utilisateur WHERE id_utilisateur = ?");
+        $query->execute(array(htmlentities($id_utilisateur)));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function modificationJoueur(){
-        if (isset($_POST['exampleInputPassword']) && isset($_POST['exampleInputPassword1']) && isset($_SESSION['login']))
+        if (isset($_POST['exampleInputPassword']) && isset($_POST['exampleInputPassword1']) && isset($_SESSION['login']['id_u']))
                 $hashedNewPassword = password_hash($_POST['exampleInputPassword1'], PASSWORD_DEFAULT);
-                $query = self:: $bdd->prepare("UPDATE Utilisateur SET ? = ? WHERE pseudo = ?");
+                $query = self:: $bdd->prepare("UPDATE Utilisateur SET ? = ? WHERE id_utilisateur = ?");
                 $query->execute(array(htmlspecialchars($hashedNewPassword)));
     }
 }

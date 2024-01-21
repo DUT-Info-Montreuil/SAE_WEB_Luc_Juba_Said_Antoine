@@ -60,7 +60,7 @@ class VueConnexion extends VueGenerique {
         ?>
 
         <div class="alert alert-info" role="alert">
-            Vous êtes connecté sur le login : <?php echo htmlentities($_SESSION['login']); ?>
+            Vous êtes connecté sur le login : <?php echo htmlentities($_SESSION['login']['id_u']); ?>
         </div>
 
         <?php
