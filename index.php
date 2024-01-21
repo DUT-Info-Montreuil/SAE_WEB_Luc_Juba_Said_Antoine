@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 include_once "connexion.php";
@@ -28,7 +27,7 @@ switch($module) {
             $contTours = new ModTours();
             $contTours->exec();
     break;
-    case 'sucess':
+    case 'succes':
         include_once('modules/mod_succes/mod_succes.php');
             $contSucces = new ModSucces();
             $contSucces->exec();
