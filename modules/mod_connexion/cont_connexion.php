@@ -40,7 +40,8 @@ class ContConnexion {
     public function connexionUtilisateur() {
         if(!isset($_SESSION['login'])) {
             if($this->modele->connexion()) {
-                $_SESSION['login'] = $this->modele->connexion();
+                $res = $this->modele->connexion();
+                $_SESSION['login'] = array('id_u' => $res['id_utilisateur'],'id_r' => $res['id_role']);
                 $this->vue->connexion_valide();
             }else {
                 $this->vue->erreur_champs();

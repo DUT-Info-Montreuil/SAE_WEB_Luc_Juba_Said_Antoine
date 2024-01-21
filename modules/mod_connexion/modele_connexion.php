@@ -48,7 +48,7 @@ class ModeleConnexion extends Connexion {
 
             if(!empty($res)) {
                 if(password_verify(htmlspecialchars($_POST['mdp']),$res['mot_de_passe'])) {
-                    return $res['pseudo'];
+                    return $res;
                 }
             }else {
                 return false;
