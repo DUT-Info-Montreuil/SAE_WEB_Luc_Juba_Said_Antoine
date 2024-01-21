@@ -11,8 +11,8 @@ class ContSucces{
 
     }
     public function affichage_page_principale_conts() {
-            $this->modele_sucess->obtenirStatsUtilisateur();
-            $tableau=$this->modele_sucess->obtenirResultats_tableau();
+            $this->modele_sucess->obtenirStatsSucces();
+            $tableau=$this->modele_sucess->obtenirResultats_tableau_succes();
             $this->vue_sucess->affiche_la_page_succes_vue($tableau);
     }
     
