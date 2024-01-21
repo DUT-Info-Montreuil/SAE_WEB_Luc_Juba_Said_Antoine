@@ -9,7 +9,7 @@ class ModeleSucces extends Connexion{
         $this->gagner_avec_qautre_tours();
     }
 
-    public function obtenirStatsUtilisateur() {
+    public function obtenirStatsSucces() {
         try {
             $stmt = self::$bdd->prepare('SELECT ennemis_tuer,score FROM Partie WHERE id_utilisateur = 4');
             $stmt->execute();
@@ -67,7 +67,7 @@ class ModeleSucces extends Connexion{
     
     
 
-    public function obtenirResultats_tableau() {
+    public function obtenirResultats_tableau_succes() {
         return $this->resultats;
     }
 
