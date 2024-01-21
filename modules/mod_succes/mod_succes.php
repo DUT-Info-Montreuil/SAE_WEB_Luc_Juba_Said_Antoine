@@ -13,10 +13,10 @@ class ModSucces{
         $this->vue_succes=new VueSucces();
     }
     public function exec() {
-        switch ($this->action) {
+        switch ($this->action){
             case 'pagePrincipal':
-            $this->conts_succes->affichage_page_principale();
-
+            $this->conts_succes->affichage_page_principale_conts();
+            break;
         }
     }
 
