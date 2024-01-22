@@ -40,26 +40,30 @@
 }
 
 /* Styles pour les cartes de tours */
+
 .cards-container {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
 }
 
-.card {
+.card1 {
     border: 1px solid #ccc;
     padding: 15px;
-    margin: 10px; /* Espacement uniforme autour de chaque carte */
+    margin: 10px; 
     width: 200px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     
 }
 
-.card img {
+
+.card1 img {
     width: 100%;
     height: auto;
 }
+
+
 
 
 .scrolling-title-container {
