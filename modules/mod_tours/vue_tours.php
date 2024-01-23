@@ -27,7 +27,7 @@ class VueTours extends VueGenerique
                 foreach ($elements as $element) {
                     if (isset($element['id_tour'], $element['image'], $element['nom'], $element['degat'])) {
                         ?>
-                        <div class="card">
+                        <div class="card1 ">
                             <a href="#popup<?= htmlspecialchars($element['id_tour']) ?>">
                                 <img src="<?= htmlspecialchars($element['image']) ?>" alt="Image du tour" />
                             </a>
