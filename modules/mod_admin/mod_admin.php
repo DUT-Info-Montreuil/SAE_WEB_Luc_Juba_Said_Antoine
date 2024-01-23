@@ -17,6 +17,9 @@ class ModAdmin {
             case 'default':
                 $this->cont->affiche();
             break;
+            case 'supprimer':
+                $this->cont->suppUtilisateur();
+            break;
             default:
                 die("l'action n'existe pas.");
         }

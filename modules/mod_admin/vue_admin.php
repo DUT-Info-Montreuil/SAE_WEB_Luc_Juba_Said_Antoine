@@ -45,28 +45,30 @@ class VueAdmin extends VueGenerique
     }
 
     public function modal_supprimer($userId) {
+        $modalId = "staticBackdrop-" . $userId;
+        $deleteId = "delete-" . $userId;
         ?>
-            <button type="button" class="btn btn-danger" id='user-id-<?php echo $userId; ?>' data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#<?php echo $modalId; ?>">
                 Supprimer
             </button>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Suppression de joueur</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger" role="alert">
-                       <h4> Êtes-vous sûr de supprimer le compte de cet l'utilisateur ? </h4>
+            <div class="modal fade" id="<?php echo $modalId; ?>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="<?php echo $modalId; ?>Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 text-danger" id="<?php echo $modalId; ?>Label">Suppression de joueur</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger" role="alert">
+                                <h4> Êtes-vous sûr de supprimer le compte de cet utilisateur ? </h4>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary" data-user-id="<?php echo $userId; ?>" id="<?php echo $deleteId; ?>">Valider</button>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Valider</button>
-                </div>
-                </div>
-            </div>
             </div>
         <?php
     }

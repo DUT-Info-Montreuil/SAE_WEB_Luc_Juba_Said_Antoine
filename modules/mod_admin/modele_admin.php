@@ -25,6 +25,14 @@ class ModeleAdmin extends Connexion {
         $res = $query->fetch();
         return $res;
     }
+
+    public function deleteUtilisateur($id) {
+        $query = self::$bdd->prepare("DELETE FROM Utilisateur WHERE id_utilisateur = ?");
+        $query->execute(array($id));
+        $rowCount = $query->rowCount();
+        return $rowCount; 
+    }
+    
 }
 
 ?>
