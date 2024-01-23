@@ -10,9 +10,8 @@ class VueAdmin extends VueGenerique
         parent::__construct();
     }
 
-    public function affiche_Tableau_de_Bord($tab)
-    {
-?>
+    public function affiche_Tableau_de_Bord($tab){
+    ?>
         <div class="container text-center mt-5">
             <h1> Tableau de bord : </h1>
             <?php echo $this->affiche_utilisateur($tab); ?>
@@ -28,7 +27,7 @@ class VueAdmin extends VueGenerique
                     <tr>
                         <th scope="col" class="text-center">Id</th>
                         <th scope="col" class="text-center">Nom</th>
-                        <th scope="col" class="text-center">Supp</th>
+                        <th scope="col" class="text-center">Suppression</th>
                     </tr>
                 </thead>
                 <?php foreach ($tab as $value) { ?>
@@ -47,28 +46,30 @@ class VueAdmin extends VueGenerique
 
     public function modal_supprimer() {
         ?>
-        <button type="button" class="btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Supprimer
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Supprimer
+            </button>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Supprimer</h1>
+                    <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Suppression de joueur</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" role="alert">
-                        Etes vous sur de supprimer cet utilisateur.
+                        Êtes-vous sûr de supprimer le compte de l'utilisateur :
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-primary">Accepter</button>
                 </div>
                 </div>
             </div>
-        </div>
+            </div>
+
         <?php
     }
 }
