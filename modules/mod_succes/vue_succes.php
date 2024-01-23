@@ -54,8 +54,8 @@ class VueSucces extends vueGenerique{
             ['titre' => 'Obtient 1000 Points En Une Partie', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'piece1000.png'],
             ['titre' => 'Cinquante Ennemis Abattus Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'cinquatennemistuesansdegat.png'],
             ['titre' => 'Gangé avec Quatre tours Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'gagneravec4tours.png'],
-            ['titre' => 'Dix Vagues Survécues Sans Power-Ups', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'bandit.jpg'],
-            ['titre' => 'Tous Les Power-Ups Collectés en Une Partie', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'tous_powerups.png'],
+            ['titre' => 'Survivre Cinq Vague Sans Dégâts', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'survivre_cinque_vague.png'],
+            ['titre' => 'Battre un nombre de vague avec motié moins de tours', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'doubleVague_tours.png'],
             
         ];
         foreach ($realisations as $index => &$realisation) {
