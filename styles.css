@@ -73,7 +73,7 @@
 
 .cercle {
     width: 80%;
-    padding-bottom: 80%; /* Utilisation d'une unité relative pour maintenir la proportionnalité */
+    padding-bottom: 80%;
     border-radius: 50%;
     background-color: #ffc800;
     margin: 10px;

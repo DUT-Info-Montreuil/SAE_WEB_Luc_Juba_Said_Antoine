@@ -53,6 +53,13 @@ class ModeleAdmin extends Connexion {
         $res = $query->fetch();
         return $res[0]; 
     }
+    
+    public function rechercherUtilisateur() {
+        $query = self::$bdd->prepare("SELECT id_utilisateur,pseudo FROM Utilisateur WHERE pseudo LIKE CONCAT('%', ?, '%')");
+        $query->execute(array(htmlentities($_POST['recherche'])));
+        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }
 
 ?>

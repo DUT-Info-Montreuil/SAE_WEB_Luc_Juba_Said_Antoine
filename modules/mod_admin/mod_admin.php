@@ -23,6 +23,9 @@ class ModAdmin {
             case 'getUtilisateurs':
                 $this->cont->getUtilisateurs();
             break;
+            case 'rechercher':
+                $this->cont->resultatRecherche();
+            break;
             default:
                 die("l'action n'existe pas.");
         }

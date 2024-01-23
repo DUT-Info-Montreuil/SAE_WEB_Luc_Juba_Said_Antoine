@@ -149,6 +149,21 @@ if (window.location.href.indexOf('index.php?module=admin') > -1) {
                 });
             });
         }
+
+        $("#searchInput").on('input', function() {
+            let searchInputValue = $(this).val();
+
+            $.ajax({
+                type: "POST",
+                url: "index.php?module=admin&action=rechercher",
+                data: { recherche: searchInputValue },
+                success: function (response) {
+                    $("#tableUtilisateurs").html(response);
+                    suppUtilisateur();
+                }
+            });
+        });
+
         suppUtilisateur();
     });
 }

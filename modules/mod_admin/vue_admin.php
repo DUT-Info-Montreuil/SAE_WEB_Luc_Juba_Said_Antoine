@@ -42,6 +42,7 @@ class VueAdmin extends VueGenerique
                     </div>
                 </div>
             </div>
+            <?php echo $this->recherche(); ?>
             <div id="tableUtilisateurs">
                 <?php echo $this->affiche_utilisateur($tab); ?>
             </div>
@@ -53,24 +54,26 @@ class VueAdmin extends VueGenerique
     public function affiche_utilisateur($tab){
     ?>
         <div class="container">
-            <table class="table table-dark table-hover table-sm mx-auto" style="width: 60%;">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="text-center">Id</th>
-                        <th scope="col" class="text-center">Nom</th>
-                        <th scope="col" class="text-center">Suppression</th>
-                    </tr>
-                </thead>
-                <?php foreach ($tab as $value) { ?>
-                    <tbody>
+            <div class="table-responsive" style="width: 60%; height: 300px; overflow-y: auto; margin: 0 auto;">
+                <table class="table table-dark table-hover table-sm mx-auto">
+                    <thead class="thead-dark">
                         <tr>
-                            <th scope="row" class="text-center"><?php echo $value['id_utilisateur']; ?></th>
-                            <td class="text-center"><?php echo $value['pseudo']; ?></td>
-                            <td class="text-center"><?php $this->modal_supprimer($value['id_utilisateur']); ?></td>
+                            <th scope="col" class="text-center">Id</th>
+                            <th scope="col" class="text-center">Nom</th>
+                            <th scope="col" class="text-center">Suppression</th>
                         </tr>
-                    </tbody>
-                <?php } ?>
-            </table>
+                    </thead>
+                    <?php foreach ($tab as $value) { ?>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-center"><?php echo $value['id_utilisateur']; ?></th>
+                                <td class="text-center"><?php echo $value['pseudo']; ?></td>
+                                <td class="text-center"><?php $this->modal_supprimer($value['id_utilisateur']); ?></td>
+                            </tr>
+                        </tbody>
+                    <?php } ?>
+                </table>
+            </div>
         </div>
     <?php
     }
@@ -103,6 +106,16 @@ class VueAdmin extends VueGenerique
             </div>
         <?php
     }
+
+    public function recherche() {
+        ?>
+            <div class="container mb-5">
+                <div class="d-flex justify-content-center">
+                    <input class="form-control me-2" id="searchInput" type="search" placeholder="Rechercher utilisateur" aria-label="Search" style="width: 320px;">
+                </div>
+            </div>
+        <?php
+    }    
 }
 
 ?>

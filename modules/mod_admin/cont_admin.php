@@ -52,6 +52,13 @@ class ContAdmin {
         echo $vue->affiche_utilisateur($users,$data);
         exit();
     }
+
+    public function resultatRecherche() {
+        $users = $this->modele->rechercherUtilisateur();
+        $vue = new VueAdmin;
+        echo $vue->affiche_utilisateur($users);
+        exit();
+    }
     
 }
 
