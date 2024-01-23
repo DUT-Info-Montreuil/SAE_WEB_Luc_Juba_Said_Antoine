@@ -14,7 +14,7 @@ class VueSucces extends vueGenerique{
         
 
         
-        $accomplies = array_sum(array_column($realisations, 'accompli'));
+$accomplies = array_sum(array_column($realisations, 'accompli'));
         $total = count($realisations);
         $pourcentageAccompli = $total > 0 ? ($accomplies / $total * 100) : 0;
         unset($realisation);
@@ -51,10 +51,10 @@ class VueSucces extends vueGenerique{
 
         $realisations = [
             ['titre' => 'Vingt Ennemis Tués Dans 5 Vagues', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'vingtennemistue.png'],
-            ['titre' => 'Obtient 1000 Points En Une Partie', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'piece1000.png'],
+            ['titre' => 'Obtient 1000 Points En Une Partie', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'piece1000.png'],
             ['titre' => 'Cinquante Ennemis Abattus Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'cinquatennemistuesansdegat.png'],
             ['titre' => 'Gangé avec Quatre tours Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'gagneravec4tours.png'],
-            ['titre' => 'Survivre Cinq Vague Sans Dégâts', 'accompli' => true, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'survivre_cinque_vague.png'],
+            ['titre' => 'Survivre Cinq Vague Sans Dégâts', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'survivre_cinque_vague.png'],
             ['titre' => 'Battre un nombre de vague avec motié moins de tours', 'accompli' => false, 'image_locked' => 'cadenas.png', 'image_unlocked' => 'doubleVague_tours.png'],
             
         ];
