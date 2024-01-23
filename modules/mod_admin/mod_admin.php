@@ -7,13 +7,16 @@ class ModAdmin {
     private $action,$cont;
 
     public function __construct(){
-        $this->cont = new ContJoueur;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : ""; 
+        $this->cont = new ContAdmin;
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "default"; 
     }
 
     public function exec() {
 
         switch($this->action) {
+            case 'default':
+                $this->cont->affiche();
+            break;
             default:
                 die("l'action n'existe pas.");
         }

@@ -12,6 +12,11 @@ class ContAdmin {
         $this->vue = new VueAdmin;
     }
 
+    public function affiche() {
+        $tab = $this->modele->getAllUser();
+        $this->vue->affiche_Tableau_de_Bord($tab);
+    }
+
 }
 
 ?>
