@@ -35,7 +35,7 @@ class VueAdmin extends VueGenerique
                         <tr>
                             <th scope="row" class="text-center"><?php echo $value['id_utilisateur']; ?></th>
                             <td class="text-center"><?php echo $value['pseudo']; ?></td>
-                            <td class="text-center"><?php $this->modal_supprimer(); ?></td>
+                            <td class="text-center"><?php $this->modal_supprimer($value['id_utilisateur']); ?></td>
                         </tr>
                     </tbody>
                 <?php } ?>
@@ -44,14 +44,13 @@ class VueAdmin extends VueGenerique
     <?php
     }
 
-    public function modal_supprimer() {
+    public function modal_supprimer($userId) {
         ?>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn btn-danger" id='user-id-<?php echo $userId; ?>' data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Supprimer
             </button>
-
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Suppression de joueur</h1>
@@ -59,17 +58,16 @@ class VueAdmin extends VueGenerique
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" role="alert">
-                        Êtes-vous sûr de supprimer le compte de l'utilisateur :
+                       <h4> Êtes-vous sûr de supprimer le compte de cet l'utilisateur ? </h4>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Accepter</button>
+                    <button type="button" class="btn btn-primary">Valider</button>
                 </div>
                 </div>
             </div>
             </div>
-
         <?php
     }
 }

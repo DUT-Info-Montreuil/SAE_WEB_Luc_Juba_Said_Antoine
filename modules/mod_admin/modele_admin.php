@@ -18,6 +18,13 @@ class ModeleAdmin extends Connexion {
         $res = $query->fetchAll();
         return $res;
     }
+
+    public function getPseudo($id) {
+        $query = self::$bdd->prepare("SELECT pseudo FROM Utilisateur where id_utilisateur = ?");
+        $query->execute(array($id));
+        $res = $query->fetch();
+        return $res;
+    }
 }
 
 ?>
