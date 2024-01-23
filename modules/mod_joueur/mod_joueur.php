@@ -30,7 +30,12 @@ class ModJoueur {
             case "affichePlusClassement" :
                 $this->cont->afficheMenu();
                 $this->cont->afficheClass();
-            break;
+                break;
+
+            case "sauvegarde":
+                $this->cont->modifierProfile();
+                break;
+
             case "profile":
                 $this->cont->afficheProfil();
             break;

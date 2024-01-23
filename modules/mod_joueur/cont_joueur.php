@@ -3,11 +3,14 @@
 require_once("modele_joueur.php");
 require_once("vue_joueur.php");
 
-class ContJoueur {
+class ContJoueur
+{
 
-    private $modele,$vue;
 
-    public function __construct(){
+    private $modele, $vue;
+
+    public function __construct()
+    {
         $this->modele = new ModeleJoueur;
         $this->vue = new VueJoueur;
     }
@@ -44,21 +47,31 @@ class ContJoueur {
         $this->vue->filtreClassement();
     }
 
-    public function affiche3Class(){
+    public function affiche3Class()
+    {
         $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
         $this->vue->affiche3Classement($joueurs);
     }
 
-    public function afficheClass(){
-       $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
-       $this->vue->afficheClassement($joueurs);
+    public function afficheClass()
+    {
+        $joueurs = $this->modele->getDesClassementJoueur($_GET['action']);
+        $this->vue->afficheClassement($joueurs);
     }
 
 
-    public function afficheProfil(){
+    public function modifierProfile()
+    {
+        $this->modele->modificationDuProfile();
+    }
+
+    public function afficheProfil()
+    {
         $joueur = $this->modele->getInfoProfil();
         $this->vue->profil($joueur);
     }
+
+
 
 
 }
