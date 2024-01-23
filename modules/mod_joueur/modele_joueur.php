@@ -68,7 +68,6 @@ class ModeleJoueur extends Connexion {
     }
 
     public function modificationPhotoDeProfil() {
-        echo isset($_FILES['inputGroupFile01']['tmp_name']);
         if (isset($_FILES['inputGroupFile01']['tmp_name']) && isset($_SESSION['login'])) {
     
             $targetDirectory = "modules/mod_joueur/images"; 
@@ -77,11 +76,6 @@ class ModeleJoueur extends Connexion {
     
             $check = getimagesize($_FILES['inputGroupFile01']['tmp_name']);
             if ($check !== false) {
-    
-                if ($_FILES['inputGroupFile01']['size'] > 1000) {
-                    echo "Désolé, votre fichier est trop volumineux.";
-                } else {
-    
                     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                         echo "Désolé, seuls les fichiers JPG, JPEG et PNG sont autorisés.";
                     } else {
@@ -94,7 +88,7 @@ class ModeleJoueur extends Connexion {
                             echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
                         }
                     }
-                }
+                
             } else {
                 echo "Le fichier n'est pas une image valide.";
             }
