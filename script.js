@@ -127,25 +127,28 @@ if (window.location.href.indexOf('index.php?module=admin') > -1) {
         function updateTableUtilisateurs() {
            $.ajax({
             type: "GET",
-            url: "index.php?module=admin&action=getUsers",
+            url: "index.php?module=admin&action=getUtilisateurs",
             success: function (response) {
                 $("#tableUtilisateurs").html(response);
+                suppUtilisateur() 
             }
            });
         }
 
-        $("[id^='delete']").click(function() {
-            let userId = $(this).data("user-id");
-            console.log("Vous avez cliqué sur Supprimer pour l'utilisateur avec l'ID : " + userId);
-            $.ajax({
-                type: "DELETE",
-                url: "index.php?module=admin&action=supprimer",
-                data: JSON.stringify({ id: userId }),
-                success: function (response) {
-                    $("#staticBackdrop-" + userId).modal('hide');
-                    updateTableUtilisateurs();
-                }
+        function suppUtilisateur() { 
+            $("[id^='delete']").click(function() {
+                let userId = $(this).data("user-id");
+                $.ajax({
+                    type: "DELETE",
+                    url: "index.php?module=admin&action=supprimer",
+                    data: JSON.stringify({ id: userId }),
+                    success: function (response) {
+                        $("#staticBackdrop-" + userId).modal('hide');
+                        updateTableUtilisateurs();
+                    }
+                });
             });
-        });
+        }
+        suppUtilisateur();
     });
 }
