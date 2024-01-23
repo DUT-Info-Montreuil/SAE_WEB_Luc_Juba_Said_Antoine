@@ -39,6 +39,11 @@ switch($module) {
         $modJoueurs = new ModJoueur;
         $modJoueurs->exec();
     break;
+    case 'feedback':
+        include_once('modules/mod_feedback/cont_feedback.php');
+        $modFeedback = new ModFeedback();
+        $modFeedback->exec();
+    break;
     default:
        die("Le module n'existe pas.");
 }
