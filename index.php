@@ -37,6 +37,11 @@ switch($module) {
         $modPartie = new ModPartie;
         $modPartie->exec();
     break;
+    case 'joueur':
+        include_once('modules/mod_joueur/mod_joueur.php');
+        $modJoueurs = new ModJoueur;
+        $modJoueurs->exec();
+    break;
     default:
        die("Le module n'existe pas.");
 }

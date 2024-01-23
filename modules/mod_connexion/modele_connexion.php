@@ -14,7 +14,6 @@ class ModeleConnexion extends Connexion {
                 htmlspecialchars(password_hash($_POST['mdp'],PASSWORD_DEFAULT))
                 )
             );
-
             if($query->rowCount()==0) {
                 return false;
             }else {
@@ -38,6 +37,9 @@ class ModeleConnexion extends Connexion {
         return false;
     }
 
+    public function verifMotDePasse(){
+    }
+
     public function connexion() {
         if(isset($_POST['login']) && isset($_POST['mdp']) && !empty($_POST['mdp']) && !empty($_POST['login'])) {
             $query = self::$bdd->prepare("SELECT * FROM Utilisateur WHERE pseudo = ?");
@@ -46,7 +48,7 @@ class ModeleConnexion extends Connexion {
 
             if(!empty($res)) {
                 if(password_verify(htmlspecialchars($_POST['mdp']),$res['mot_de_passe'])) {
-                    return $res['pseudo'];
+                    return $res;
                 }
             }else {
                 return false;
