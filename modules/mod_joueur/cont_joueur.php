@@ -29,7 +29,7 @@ class ContJoueur {
 
     
     public function modifierProfile(){
-        $this->modele->modificationMotDePasse();
+        $this->modele->modificationDuProfile();
     }
 
     public function afficheProfil(){
