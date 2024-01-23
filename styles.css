@@ -60,3 +60,36 @@
     width: 100%;
     height: auto;
 }
+
+/*--------------------------------------------------------*/
+.bloc-dashboard {
+    width: 60%;
+    max-width: 1000px;
+    margin: 0 auto; 
+    border-radius: 10px;
+    background: #1B6CA6; 
+    padding: 20px;
+}
+
+.cercle {
+    width: 80%;
+    padding-bottom: 80%; /* Utilisation d'une unité relative pour maintenir la proportionnalité */
+    border-radius: 50%;
+    background-color: #ffc800;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cercle p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0;
+}
+
+body {
+    font-family: monospace;
+}

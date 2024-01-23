@@ -10,21 +10,50 @@ class VueAdmin extends VueGenerique
         parent::__construct();
     }
 
-    public function affiche_Tableau_de_Bord($tab){
-    ?>
+    public function affiche_Tableau_de_Bord($tab,$data){
+        ?>
         <div class="container text-center mt-5">
             <h1> Tableau de bord : </h1>
+            <div class="bloc-dashboard mt-5 mb-5 mx-auto text-white fw-bold">
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 text-center d-flex justify-content-center">
+                    <div class="col">
+                        <p>Compte inscrit</p>
+                        <div class="cercle">
+                            <p> <?php echo $data['nbrInscrit']; ?> </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p>Meilleur joueur</p>
+                        <div class="cercle">
+                            <p> <?php echo $data['meilleurJoueur']; ?> </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p>Nombre partie</p>
+                        <div class="cercle">
+                            <p> <?php echo $data['nbrPartie']; ?> </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p>Total feedback</p>
+                        <div class="cercle">
+                            <p> <?php echo $data['nbrFeedback']; ?> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="tableUtilisateurs">
                 <?php echo $this->affiche_utilisateur($tab); ?>
             </div>
         </div>
-    <?php
+        <?php
     }
+    
 
     public function affiche_utilisateur($tab){
     ?>
         <div class="container">
-            <table class="table table-dark table-hover table-sm mx-auto" style="width: 50%;">
+            <table class="table table-dark table-hover table-sm mx-auto" style="width: 60%;">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col" class="text-center">Id</th>

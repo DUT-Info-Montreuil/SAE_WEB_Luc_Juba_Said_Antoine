@@ -19,20 +19,40 @@ class ModeleAdmin extends Connexion {
         return $res;
     }
 
-    public function getPseudo($id) {
-        $query = self::$bdd->prepare("SELECT pseudo FROM Utilisateur where id_utilisateur = ?");
-        $query->execute(array($id));
-        $res = $query->fetch();
-        return $res;
-    }
-
     public function deleteUtilisateur($id) {
         $query = self::$bdd->prepare("DELETE FROM Utilisateur WHERE id_utilisateur = ?");
         $query->execute(array($id));
         $rowCount = $query->rowCount();
         return $rowCount; 
     }
-    
+
+    public function getNombreCompte() {
+        $query = self::$bdd->prepare("SELECT COUNT(*) FROM Utilisateur");
+        $query->execute();
+        $res = $query->fetch();
+        return $res[0]; 
+    }
+
+    public function getMeilleurJoueur() {
+        $query = self::$bdd->prepare("SELECT Utilisateur.pseudo, MAX(Partie.score) as max_score FROM Partie INNER JOIN Utilisateur ON Partie.id_utilisateur = Utilisateur.id_utilisateur GROUP BY Utilisateur.id_utilisateur ORDER BY max_score DESC LIMIT 1");
+        $query->execute();
+        $res = $query->fetch();
+        return $res[0];
+    }
+
+    public function getNombrePartie() {
+        $query = self::$bdd->prepare("SELECT COUNT(*) FROM Partie");
+        $query->execute();
+        $res = $query->fetch();
+        return $res[0]; 
+    }
+
+    public function getNombreFeedback() {
+        $query = self::$bdd->prepare("SELECT COUNT(*) FROM Feedback");
+        $query->execute();
+        $res = $query->fetch();
+        return $res[0]; 
+    }
 }
 
 ?>

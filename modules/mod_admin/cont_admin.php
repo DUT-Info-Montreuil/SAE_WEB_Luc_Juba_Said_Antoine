@@ -14,7 +14,13 @@ class ContAdmin {
 
     public function affiche() {
         $tab = $this->modele->getUtilisateurs();
-        $this->vue->affiche_Tableau_de_Bord($tab);
+        $data = array(
+            'nbrInscrit' => $this->modele->getNombreCompte(),
+            'meilleurJoueur' => $this->modele->getMeilleurJoueur(),
+            'nbrPartie' => $this->modele->getNombrePartie(),
+            'nbrFeedback' => $this->modele->getNombreFeedback()
+        );
+        $this->vue->affiche_Tableau_de_Bord($tab,$data);
     }
 
     public function suppUtilisateur() {
@@ -37,7 +43,13 @@ class ContAdmin {
     public function getUtilisateurs() {
         $users = $this->modele->getUtilisateurs();
         $vue = new VueAdmin;
-        echo $vue->affiche_utilisateur($users);
+        $data = array(
+            'nbrInscrit' => $this->modele->getNombreCompte(),
+            'meilleurJoueur' => $this->modele->getMeilleurJoueur(),
+            'nbrPartie' => $this->modele->getNombrePartie(),
+            'nbrFeedback' => $this->modele->getNombreFeedback()
+        );
+        echo $vue->affiche_utilisateur($users,$data);
         exit();
     }
     
