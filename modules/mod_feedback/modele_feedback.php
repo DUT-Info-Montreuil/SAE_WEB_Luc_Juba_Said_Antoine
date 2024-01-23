@@ -1,24 +1,23 @@
 <?php
-
-// modele_feedback.php
-
+require_once 'Connexion.php';
 require_once 'mod_feedback.php';
 
-class ModeleFeedback {
-    private $modFeedback;
 
-    public function __construct() {
-        $this->modFeedback = new ModFeedback();
-    }
-
-    public function soumettreFeedback($idUtilisateur, $nomUtilisateur, $email, $commentaire) {
-        $this->modFeedback->insererFeedback($idUtilisateur, $nomUtilisateur, $email, $commentaire);
-    }
-
-    public function obtenirFeedbacks() {
-        return $this->modFeedback->recupererFeedbacks();
+class ModeleFeedback extends Connexion {
+    public function insererFeedback() {
+        /*
+        try {
+          
+            $requete = self::$bdd->prepare("INSERT INTO Feedback (id_utilisateur, nom_utilisateur, email, commentaire) VALUES (?, ?, ?, ?)");
+            return $requete->execute(array(htmlentities($_SESSION['login']),htmlentities($_POST('nom_utilisateur')),htmlentities($_POST('email')),htmlentities($_POST('commentaire'))));
+        } catch (Exception $e) {
+            // Gestion des erreurs
+            die('Erreur : ' . $e->getMessage());
+        }
+        */
+        $requete = self::$bdd->prepare("INSERT INTO Feedback (id_utilisateur,nom_utilisateur,email,commentaire) VALUES (?,?,?,?)");
+        $requete->execute(array($_SESSION['login'],$_POST['nom_utilisateur'],$_POST['email'],$_POST['commentaire']));
     }
 }
-
 
 ?>

@@ -37,7 +37,7 @@ switch($module) {
     case 'feedback':
         include_once('modules/mod_feedback/cont_feedback.php');
         $contFeedback = new ContFeedback();
-        $contFeedback->exec();
+        $contFeedback->soumettreFeedback();
     break;
     
 
