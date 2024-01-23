@@ -28,7 +28,6 @@ switch($module) {
             $contTours = new ModTours();
             $contTours->exec();
     break;
-    
     case 'partie':
         include_once('modules/mod_partie/mod_partie.php');
         $modPartie = new ModPartie;
@@ -38,6 +37,15 @@ switch($module) {
         include_once('modules/mod_joueur/mod_joueur.php');
         $modJoueurs = new ModJoueur;
         $modJoueurs->exec();
+    break;
+    case 'admin':
+        if(isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2 ){
+            include_once('modules/mod_admin/mod_admin.php');
+            $modAdmin = new ModAdmin;
+            $modAdmin->exec();
+        }else {
+            die("vous n'etes pas administrateur.");
+        }
     break;
     default:
        die("Le module n'existe pas.");
