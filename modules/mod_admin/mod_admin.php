@@ -20,6 +20,9 @@ class ModAdmin {
             case 'supprimer':
                 $this->cont->suppUtilisateur();
             break;
+            case 'getUtilisateurs':
+                $this->cont->getUtilisateurs();
+            break;
             default:
                 die("l'action n'existe pas.");
         }

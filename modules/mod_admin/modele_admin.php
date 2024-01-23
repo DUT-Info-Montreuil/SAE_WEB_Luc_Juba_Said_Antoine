@@ -12,7 +12,7 @@ class ModeleAdmin extends Connexion {
         return $res;
     }
 
-    public function getAllUser() {
+    public function getUtilisateurs() {
         $query = self::$bdd->prepare("SELECT id_utilisateur,pseudo FROM Utilisateur WHERE id_role = 1");
         $query->execute();
         $res = $query->fetchAll();

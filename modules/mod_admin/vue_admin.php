@@ -14,7 +14,9 @@ class VueAdmin extends VueGenerique
     ?>
         <div class="container text-center mt-5">
             <h1> Tableau de bord : </h1>
-            <?php echo $this->affiche_utilisateur($tab); ?>
+            <div id="tableUtilisateurs">
+                <?php echo $this->affiche_utilisateur($tab); ?>
+            </div>
         </div>
     <?php
     }

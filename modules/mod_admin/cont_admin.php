@@ -13,7 +13,7 @@ class ContAdmin {
     }
 
     public function affiche() {
-        $tab = $this->modele->getAllUser();
+        $tab = $this->modele->getUtilisateurs();
         $this->vue->affiche_Tableau_de_Bord($tab);
     }
 
@@ -32,6 +32,13 @@ class ContAdmin {
             echo json_encode(["success" => false, "message" => "Erreur lors de la suppression de l'utilisateur"]);
             exit();
         }
+    }
+
+    public function getUtilisateurs() {
+        $users = $this->modele->getUtilisateurs();
+        $vue = new VueAdmin;
+        echo $vue->affiche_utilisateur($users);
+        exit();
     }
     
 }
