@@ -120,3 +120,21 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
         }
     });
 }
+
+if (window.location.href.indexOf('index.php?module=admin') > -1) {
+    $(function() {
+        $("[id^='delete']").click(function() {
+            let userId = $(this).data("user-id");
+            console.log("Vous avez cliqué sur Supprimer pour l'utilisateur avec l'ID : " + userId);
+            $.ajax({
+                type: "DELETE",
+                url: "index.php?module=admin&action=supprimer",
+                data: JSON.stringify({ id: userId }),
+                success: function (response) {
+                    console.log(response);
+                    $("#staticBackdrop-" + userId).modal('hide');
+                }
+            });
+        });
+    });
+}
