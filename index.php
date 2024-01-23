@@ -42,6 +42,15 @@ switch($module) {
         $modJoueurs = new ModJoueur;
         $modJoueurs->exec();
     break;
+    case 'admin':
+        if(isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2 ){
+            include_once('modules/mod_admin/mod_admin.php');
+            $modAdmin = new ModAdmin;
+            $modAdmin->exec();
+        }else {
+            die("vous n'etes pas administrateur.");
+        }
+    break;
     case 'feedback':
         include_once('modules/mod_feedback/cont_feedback.php');
         $modFeedback = new ModFeedback();

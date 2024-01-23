@@ -120,3 +120,50 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
         }
     });
 }
+
+if (window.location.href.indexOf('index.php?module=admin') > -1) {
+    $(function() {
+
+        function updateTableUtilisateurs() {
+           $.ajax({
+            type: "GET",
+            url: "index.php?module=admin&action=getUtilisateurs",
+            success: function (response) {
+                $("#tableUtilisateurs").html(response);
+                suppUtilisateur() 
+            }
+           });
+        }
+
+        function suppUtilisateur() { 
+            $("[id^='delete']").click(function() {
+                let userId = $(this).data("user-id");
+                $.ajax({
+                    type: "DELETE",
+                    url: "index.php?module=admin&action=supprimer",
+                    data: JSON.stringify({ id: userId }),
+                    success: function (response) {
+                        $("#staticBackdrop-" + userId).modal('hide');
+                        updateTableUtilisateurs();
+                    }
+                });
+            });
+        }
+
+        $("#searchInput").on('input', function() {
+            let searchInputValue = $(this).val();
+
+            $.ajax({
+                type: "POST",
+                url: "index.php?module=admin&action=rechercher",
+                data: { recherche: searchInputValue },
+                success: function (response) {
+                    $("#tableUtilisateurs").html(response);
+                    suppUtilisateur();
+                }
+            });
+        });
+
+        suppUtilisateur();
+    });
+}
