@@ -41,7 +41,7 @@ class ContConnexion {
         if(!isset($_SESSION['login'])) {
             if($this->modele->connexion()) {
                 $res = $this->modele->connexion();
-                $_SESSION['login'] = array('id_u' => $res['id_utilisateur'],'id_r' => $res['id_role']);
+                $_SESSION['login'] = array('id_u' => $res['id_utilisateur'],'id_r' => $res['id_role'],'pseudo' => $res['pseudo']);
                 $this->vue->connexion_valide();
             }else {
                 $this->vue->erreur_champs();
