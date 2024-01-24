@@ -56,6 +56,11 @@ switch($module) {
         $modFeedback = new ModFeedback();
         $modFeedback->exec();
     break;
+    case 'topic':
+        include_once('modules/mod_topic/mod_topic.php');
+        $modTopic = new ModTopic();
+        $modTopic->exec();
+    break;
     default:
        die("Le module n'existe pas.");
 }
