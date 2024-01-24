@@ -22,8 +22,8 @@ class VueJoueur extends VueGenerique {
                     <div class="bg-primary text-white rounded p-3 m-1">
                         <h2> Moyenne </h2>
                         <p>Vague : <?php echo $moyenne['moyenne_vague']; ?></p>
-                        <p>Ennemis : <?php echo $moyenne['moyenne_tuer']; ?></p>
-                        <p>Ennemis tué : <?php echo $moyenne['moyenne_ennemis']; ?></p>
+                        <p>Ennemis : <?php echo $moyenne['moyenne_ennemis']; ?></p>
+                        <p>Ennemis tué : <?php echo $moyenne['moyenne_tuer']; ?></p>
                         <p>Tourelles posé : <?php echo $moyenne['moyenne_tours']; ?></p>
                     </div>
                 </div>
@@ -32,8 +32,8 @@ class VueJoueur extends VueGenerique {
                     <div class="bg-success text-white rounded p-3 m-1">
                         <h2> Maximum </h2>
                         <p>Vague : <?php echo $max['max_vague']; ?></p>
-                        <p>Ennemis : <?php echo $max['max_tuer']; ?></p>
-                        <p>Ennemis tué : <?php echo $max['max_ennemis']; ?></p>
+                        <p>Ennemis : <?php echo $max['max_ennemis']; ?></p>
+                        <p>Ennemis tué : <?php echo $max['max_tuer']; ?></p>
                         <p>Tourelles posé : <?php echo $max['max_tours']; ?></p>
                     </div>
                 </div>
@@ -42,8 +42,8 @@ class VueJoueur extends VueGenerique {
                     <div class="bg-danger text-white rounded p-3 m-1">
                         <h2> Minimum </h2>
                         <p>Vague : <?php echo $min['min_vague']; ?></p>
-                        <p>Ennemis : <?php echo $min['min_tuer']; ?></p>
-                        <p>Ennemis tué : <?php echo $min['min_ennemis']; ?></p>
+                        <p>Ennemis : <?php echo $min['min_ennemis']; ?></p>
+                        <p>Ennemis tué : <?php echo $min['min_tuer']; ?></p>
                         <p>Tourelles posé : <?php echo $min['min_tours']; ?></p>
                     </div>
                 </div>
