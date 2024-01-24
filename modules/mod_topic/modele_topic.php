@@ -31,7 +31,7 @@ class ModeleTopic extends Connexion {
 
     public function getTopic() {
         if(isset($_GET['id'])) {
-            $query = self::$bdd->prepare("SELECT * FROM Topic WHERE id_topic = ?");
+            $query = self::$bdd->prepare("SELECT * FROM Topic INNER JOIN Utilisateur ON Topic.id_utilisateur = Utilisateur.id_utilisateur WHERE id_topic = ?");
             $query->execute(array(htmlentities($_GET['id'])));
             return $query->fetch();
         }

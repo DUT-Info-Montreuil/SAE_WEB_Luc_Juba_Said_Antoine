@@ -71,7 +71,16 @@ class VueTopic extends VueGenerique{
         ?>
         <div class="container d-flex flex-column align-items-center mt-5">
             <h3>Sujet : <?php echo $topic['question']; ?> </h3>
-            <p><?php echo $topic['intituler']; ?> </p>
+            <div class="card  text-bg-secondary mb-3" style="width: 50%;">
+                    <p class="card-header">
+                        <span> Créateur du topic : </span>
+                        <img src="<?php echo $topic['photo_de_profile']; ?>" class="rounded-circle img-fluid border border-black" alt="img" style="max-width: 35px;"> 
+                        <span>  <?php echo $topic['pseudo']; ?> </span>
+                    </p>
+                    <div class="card-body">
+                        <p class="card-text"> <?php echo $topic['intituler']; ?> </p>
+                    </div>
+                </div>
             <?php
             $this->liste_commentaire($tab);
             $this->insertCommentaire();
@@ -100,7 +109,6 @@ class VueTopic extends VueGenerique{
         <?php
     }
     
-
     public function insertCommentaire() {
         if(isset($_SESSION['login'])) {
             ?>
