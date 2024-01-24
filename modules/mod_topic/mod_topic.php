@@ -8,17 +8,26 @@ class ModTopic {
 
     public function __construct(){
         $this->cont = new ContTopic;
-        $this->action = isset($_GET['action']) ? $_GET['action'] : "default"; 
+        $this->action = isset($_GET['action']) ? $_GET['action'] : "affiche_topic"; 
     }
 
     public function exec() {
 
         switch($this->action) {
-            case 'default':
+            case 'affiche_topic': 
+                $this->cont->affiche_liste_topic();
+            break;
+            case 'affiche_form':
                 $this->cont->afficheForm();
             break;
             case 'creerTopic':
                 $this->cont->creerTopic();
+            break;
+            case 'topic':
+                $this->cont->affiche_topic();
+            break;
+            case 'insertCom':
+                $this->cont->insertCom();
             break;
             default:
                 die("l'action n'existe pas.");

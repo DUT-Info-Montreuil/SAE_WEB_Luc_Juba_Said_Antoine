@@ -17,7 +17,28 @@ class ContTopic {
     }
 
     public function creerTopic() {
-        $this->modele->insertTopic();
+        if($this->modele->insertTopic()) {
+            echo "Insertion réussite.";
+        }else {
+            echo "Une erreur inattendu est survenu !";
+        }
+    }
+
+    public function affiche_liste_topic() {
+        $tab = $this->modele->getAllTopic();
+        $this->vue->afficheListeTopic($tab,$this->modele);
+    }
+
+    public function affiche_topic() {
+        $this->vue->affiche_topic($this->modele->getTopic(),$this->modele->getAllMessageByTopic());
+    }
+
+    public function insertCom() {
+        if($this->modele->insererCommentaire()) {
+            echo "True";
+        }else {
+            echo "False";
+        }
     }
     
 }

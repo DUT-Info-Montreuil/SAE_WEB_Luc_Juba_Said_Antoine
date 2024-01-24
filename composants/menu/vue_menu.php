@@ -72,6 +72,7 @@ class VueMenu {
                         <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Inscription</a>
                         <a class="nav-link" href="index.php?module=mod_acteur">Liste Acteurs</a>
                         <a class="nav-link" href="index.php?module=tours">Liste Tours</a>
+                        <a class="nav-link" href="index.php?module=topic">Forum</a> 
                     </div>
                 </div>
                 </div>
