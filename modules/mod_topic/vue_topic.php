@@ -30,13 +30,13 @@ class VueTopic extends VueGenerique{
 
     public function afficheListeTopic($tab, $count) {
         ?>
-        <div class="container">
+        <div class="container d-flex flex-column align-items-center mt-5">
             <?php if(isset($_SESSION['login'])) { ?>
                 <div>
                     <p>Créer un topic : <a class="btn btn-primary" href="index.php?module=topic&action=affiche_form" role="button">Nouveau Topic</a></p>
                 </div>
             <?php } ?>
-            <div class="card" style="width: 24rem;">
+            <div class="card" style="width: 24rem; max-height : 350px; overflow-y : auto;">
                 <div class="card-header">
                     Topics disponibles :
                 </div>
