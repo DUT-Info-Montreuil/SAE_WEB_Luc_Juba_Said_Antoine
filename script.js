@@ -167,3 +167,24 @@ if (window.location.href.indexOf('index.php?module=admin') > -1) {
         suppUtilisateur();
     });
 }
+
+if (window.location.href.indexOf('index.php?module=topic') > -1) {
+    $(function() {
+        $("#envoyerCom").click(function(e) {
+            e.preventDefault();
+            var formData = $("#commentForm").serialize();
+            $.ajax({
+                type: "POST",
+                url: "index.php?module=topic&action=insertCom",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert("Problème lors de l'insertion du commentaire : " + response.message);
+                    }
+                }
+            });
+        });
+    });
+}

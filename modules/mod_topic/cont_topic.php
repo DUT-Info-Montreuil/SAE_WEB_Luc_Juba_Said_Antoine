@@ -34,10 +34,13 @@ class ContTopic {
     }
 
     public function insertCom() {
-        if($this->modele->insererCommentaire()) {
-            echo "True";
-        }else {
-            echo "False";
+        header('Content-Type: application/json');
+        if ($this->modele->insererCommentaire()) {
+            echo json_encode(array('success' => true));
+            exit();
+        } else {
+            echo json_encode(array('success' => false, 'message' => 'Erreur lors de l\'insertion du commentaire.'));
+            exit();
         }
     }
     

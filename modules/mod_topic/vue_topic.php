@@ -104,12 +104,12 @@ class VueTopic extends VueGenerique{
     public function insertCommentaire() {
         if(isset($_SESSION['login'])) {
             ?>
-            <form action="index.php?module=topic&action=insertCom" method="post">
+            <form id="commentForm" action="index.php?module=topic&action=insertCom" method="post">
                 <div class="mb-3" style="width: 350px;">
                     <label for="exampleFormControlTextarea1" class="form-label">Saisir votre commentaire :</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="com" rows="3" required placeholder="votre commentaire ..."></textarea>
                     <input type="hidden" name="id_topic" value="<?php echo $_GET['id']; ?>">
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-primary" id="envoyerCom">Envoyer</button>
                 </div>
             </form>
             <?php
