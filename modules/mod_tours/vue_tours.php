@@ -13,47 +13,43 @@ class VueTours extends VueGenerique
     public function afficherTours($elements)
     {
         ?>
-
-        <head>
-
-        </head>
-
-        <body>
-            <?php
-              if (empty($elements)) {
-                echo "<p>Aucun élément à afficher</p>";
-            } else {
-                echo '<div class="cards-container">';
-                foreach ($elements as $element) {
-                    if (isset($element['id_tour'], $element['image'], $element['nom'], $element['degat'])) {
-                        ?>
-                        <div class="card1 ">
-                            <a href="#popup<?= htmlspecialchars($element['id_tour']) ?>">
-                                <img src="<?= htmlspecialchars($element['image']) ?>" alt="Image du tour" />
-                            </a>
-                            <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
-                            <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
-                            <!-- Pop-up -->
-                            <div id="popup<?= htmlspecialchars($element['id_tour']) ?>" class="popup">
-                                <div class="popup-content">
-                                    <a href="#" class="close">&times;</a>
-                                    <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
-                                    <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
-                                    <p>Prix: <?= htmlspecialchars($element['prix']) ?></p>
-                                    <p>Description: <?= htmlspecialchars($element['description']) ?></p>
+        <div class="container mt-5">
+            <?php if (empty($elements)) : ?>
+                <p>Aucun élément à afficher</p>
+            <?php else : ?>
+                <div class="row">
+                    <?php foreach ($elements as $element) : ?>
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <!-- Lien autour de l'image pour ouvrir le popup -->
+                                <a href="#popup<?= htmlspecialchars($element['id_tour']) ?>">
+                                    <img src="<?= htmlspecialchars($element['image']) ?>" class="card-img-top" alt="Image du tour" style="cursor:pointer;">
+                                </a>
+    
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= htmlspecialchars($element['nom']) ?></h5>
+                                    <p class="card-text">Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                    }
-                }
-                echo '</div>';
-            }
-            ?>
-        </body>
+    
+                        <!-- Popup basé sur CSS -->
+                        <div id="popup<?= htmlspecialchars($element['id_tour']) ?>" class="popup">
+                            <div class="popup-content">
+                                <a href="#" class="close">&times;</a>
+                                <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
+                                <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
+                                <p>Prix: <?= isset($element['prix']) ? htmlspecialchars($element['prix']) : 'Non spécifié' ?></p>
+                                <p>Description: <?= isset($element['description']) ? htmlspecialchars($element['description']) : 'Non spécifiée' ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
         <?php
     }
-
+    
 
 
 
