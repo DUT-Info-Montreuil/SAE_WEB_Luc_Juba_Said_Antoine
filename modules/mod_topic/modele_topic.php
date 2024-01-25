@@ -38,7 +38,7 @@ class ModeleTopic extends Connexion {
     }
 
     public function getAllMessageByTopic() {
-        $query = self::$bdd->prepare("SELECT *, DATE_FORMAT(Message.date, '%d/%m/%Y') AS dateMessage, DATE_FORMAT(Message.date, '%H:%i') AS heureMessage FROM Message INNER JOIN Utilisateur ON Utilisateur.id_utilisateur = Message.id_utilisateur WHERE id_topic = ?");
+        $query = self::$bdd->prepare("SELECT *, DATE_FORMAT(Message.date, '%d/%m/%Y') AS dateMessage, DATE_FORMAT(Message.date, '%H:%i') AS heureMessage FROM Message INNER JOIN Utilisateur ON Utilisateur.id_utilisateur = Message.id_utilisateur WHERE id_topic = ? ORDER BY dateMessage ASC,heureMessage ASC");
         $query->execute(array(htmlentities($_GET['id'])));
         $res = $query->fetchAll();
         return $res;
