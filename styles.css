@@ -27,7 +27,6 @@
     top: 5px;
 }
 
-
 /* Styles pour la barre de recherche */
 .search-bar {
     text-align: center;
@@ -41,25 +40,19 @@
 }
 
 /* Styles pour les cartes de tours */
-/* Styles de base pour le conteneur des tours */
+
 .cards-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Espacement entre les cartes */
-    justify-content: center; /* Centrer les cartes dans le conteneur */
-    align-items: center; /* Centrer les cartes verticalement dans le conteneur */
-    min-height: 100vh; /* Assurer que le conteneur prend au moins la hauteur de l'écran */
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
-.card {
-    flex: 0 1 300px; /* Les cartes s'adapteront mais n'iront pas en-dessous de 300px */
-    margin: auto; /* Centrer les cartes horizontalement */
-    border: 1px solid #ccc; /* Style de bordure exemple */
-    padding: 10px; /* Padding intérieur */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre portée légère */
-    width: fit-content; /* Assurer que la largeur de la carte s'adapte à son contenu */
-}
 
+
+.card1 img {
+    width: 100%;
+    height: auto;
+}
 
 /*--------------------------------------------------------*/
 .bloc-dashboard {
@@ -131,7 +124,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     margin: auto;
-    margin-top: 100px;
 }
 
 /* Style des labels */
@@ -183,6 +175,3 @@ body {
 #liste_feedbacks .feedback p {
     margin-bottom: 0;
 }
-
-
-
