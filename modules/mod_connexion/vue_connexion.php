@@ -19,11 +19,11 @@ class VueConnexion extends VueGenerique {
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Saisir login : </label>
-                        <input type="text" class="form-control" name="login" id="login" required>
+                        <input type="text" class="form-control" name="login" id="login" placeholder="nouveau login" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Mot de passe : </label>
-                        <input type="password" class="form-control" name="mdp" id="mdp" required>
+                        <input type="password" class="form-control" name="mdp" id="mdp" placeholder="mot de passe" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Confirmer</button>
 
