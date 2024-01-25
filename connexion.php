@@ -16,6 +16,10 @@ class Connexion {
             die("Error: ".$e->getMessage());
         }
     }
+    
+    public static function getBdd() {
+        return self::$bdd;
+    }
 }
 
 ?>
