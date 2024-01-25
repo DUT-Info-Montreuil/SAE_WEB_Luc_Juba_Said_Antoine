@@ -62,12 +62,12 @@ class VueActeur extends vueGenerique{
 
 public function affichage_searche_bar() {
     ?>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col">
                 <form action="index.php?module=mod_acteur&action=recherche" method="post" class="d-flex justify-content-center">
                     <input type="text" name="search" class="form-control" placeholder="Rechercher un acteur par nom...">
-                    <button type="submit" class="btn btn-outline-success">Rechercher</button>
+                    <button type="submit" class="btn btn-success">Rechercher</button>
                 </form>
             </div>
         </div>

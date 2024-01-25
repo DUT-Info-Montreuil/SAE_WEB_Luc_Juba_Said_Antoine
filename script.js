@@ -91,12 +91,16 @@ if (window.location.href.indexOf('index.php?module=joueur') > -1) {
                             {
                                 label: 'Moyenne Globale',
                                 data: dataGlobal,
-                                borderWidth: 1
+                                borderWidth: 1,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)', 
+                                borderColor: 'rgba(54, 162, 235, 1)'
                             },
                             {
                                 label: 'Moyenne du Joueur',
                                 data: dataJoueur,
-                                borderWidth: 1
+                                borderWidth: 1,
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)'
                             },
                         ]
                     },

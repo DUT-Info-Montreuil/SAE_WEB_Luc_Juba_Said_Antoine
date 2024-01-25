@@ -36,7 +36,7 @@ class ModJoueur {
                 $this->cont->modifierProfile();
                 break;
 
-            case "profile":
+            case "profil":
                 $this->cont->afficheProfil();
             break;
             default:

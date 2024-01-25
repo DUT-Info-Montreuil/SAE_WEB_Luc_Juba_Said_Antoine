@@ -36,7 +36,7 @@ class VueTopic extends VueGenerique{
                     <p>Créer un topic : <a class="btn btn-primary" href="index.php?module=topic&action=affiche_form" role="button">Nouveau Topic</a></p>
                 </div>
             <?php } ?>
-            <div class="card" style="width: 24rem; max-height : 350px; overflow-y : auto;">
+            <div class="card" style="width: 32rem; max-height : 350px; overflow-y : auto;">
                 <div class="card-header">
                     Topics disponibles :
                 </div>
