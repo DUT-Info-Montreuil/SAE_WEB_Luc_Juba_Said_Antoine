@@ -81,7 +81,7 @@ class VueJoueur extends VueGenerique {
                 </div>
             </div>
             <div class="container text-center mt-4" style="width: 60%;">
-                <canvas id="myChart" style="height: 400px;"></canvas>
+                <canvas id="myChart" style="height: 400px; background-color: #f0f0f0;"></canvas>
             </div>
             <?php $this->choix_Graph(); ?>
         <?php

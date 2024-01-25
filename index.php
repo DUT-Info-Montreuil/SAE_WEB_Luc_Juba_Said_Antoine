@@ -10,9 +10,12 @@ include_once('vue_generique.php');
 
 $vueGen = new VueGenerique;
 
-$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "connexion"; 
+$module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "accueil"; 
 
 switch($module) {
+    case 'accueil':
+        include_once('page/accueil.php');
+    break;
     case 'connexion':
         include_once('modules/mod_connexion/mod_connexion.php');
         $modConnexion = new ModConnexion;
