@@ -99,8 +99,8 @@ class ModeleJoueur extends Connexion {
     public function modificationMotDePasse() {
         if (isset($_POST['exampleInputPassword']) && isset($_POST['exampleInputPassword1']) && isset($_SESSION['login'])) {
 
-            $query = self::$bdd->prepare("SELECT mot_de_passe FROM Utilisateur WHERE pseudo = ?");
-            $query->execute(array($_SESSION['login']));
+            $query = self::$bdd->prepare("SELECT mot_de_passe FROM Utilisateur WHERE id_utilisateur = ?");
+            $query->execute(array(htmlspecialchars($_SESSION['login']['id_u'])));
             $result = $query->fetch(PDO::FETCH_ASSOC);
     
             if ($result) {
