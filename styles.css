@@ -42,27 +42,25 @@
 }
 
 /* Styles pour les cartes de tours */
-
+/* Styles de base pour le conteneur des tours */
 .cards-container {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacement entre les cartes */
+    justify-content: center; /* Centrer les cartes dans le conteneur */
+    align-items: center; /* Centrer les cartes verticalement dans le conteneur */
+    min-height: 100vh; /* Assurer que le conteneur prend au moins la hauteur de l'écran */
 }
 
-.card1 {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px; 
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    
+.card {
+    flex: 0 1 300px; /* Les cartes s'adapteront mais n'iront pas en-dessous de 300px */
+    margin: auto; /* Centrer les cartes horizontalement */
+    border: 1px solid #ccc; /* Style de bordure exemple */
+    padding: 10px; /* Padding intérieur */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre portée légère */
+    width: fit-content; /* Assurer que la largeur de la carte s'adapte à son contenu */
 }
 
-.card1 img {
-    width: 100%;
-    height: auto;
-}
 
 /*--------------------------------------------------------*/
 .bloc-dashboard {
@@ -188,53 +186,4 @@ body {
 }
 
 
-@media only screen and (max-width: 600px) {
-    .cards-container {
-        flex-wrap: wrap;
-    }
 
-    .card1, .custom-card, .form-feedback {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .search-bar input[type="text"] {
-        width: 70%;
-    }
-
-    .popup {
-        width: 90%;
-    }
-}
-
-
-.card1 img, .custom-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .form-feedback, .popup-content {
-        font-size: 16px;
-    }
-}
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .form-feedback, .popup-content {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .cercle {
-        display: none; /* Exemple pour cacher des éléments */
-    }
-}
