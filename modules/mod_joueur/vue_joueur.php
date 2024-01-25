@@ -134,6 +134,7 @@ class VueJoueur extends VueGenerique {
 
     public function profil($joueur)
     {
+        $token = CSRFToken::genererToken();
         ?>
         <body>
             <div class="container my-5">
@@ -141,6 +142,7 @@ class VueJoueur extends VueGenerique {
                     <div class="col-12 col-md-8 col-lg-6">
                         <h1 class="text-center">Profil Utilisateur</h1>
                         <form action="index.php?module=joueur&action=sauvegarde" method="post" enctype="multipart/form-data" class="mt-4">
+                            <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Pseudo d’utilisateur :</label>
                                 <p><?php echo htmlspecialchars($joueur[0]["pseudo"]); ?></p>

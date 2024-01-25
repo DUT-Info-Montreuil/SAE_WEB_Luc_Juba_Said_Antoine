@@ -55,9 +55,11 @@ class VueTours extends VueGenerique
 
     public function afficherBarre()
     {
+        $token = CSRFToken::genererToken();
         ?>
         <div class="search-bar">
             <form action="index.php?module=tours&action=recherche" method="post">
+            <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">  <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                 <input type="text" name="search" placeholder="Rechercher un tour par nom...">
                 <button type="submit"  class="btn btn-primary">Rechercher</button>
             </form>

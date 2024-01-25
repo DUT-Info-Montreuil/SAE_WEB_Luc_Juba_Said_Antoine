@@ -8,6 +8,16 @@ $con::init_Connexion();
 
 include_once('vue_generique.php');
 
+include_once('token/tokenCRSF.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $tokenName = CSRFToken::getTokenName();
+    if (!isset($_POST[$tokenName]) || !CSRFToken::verifierToken($_POST[$tokenName])) {
+        die("Token CSRF invalide.");
+    }
+}
+
+
 $vueGen = new VueGenerique;
 
 $module = isset($_GET['module']) ? htmlspecialchars($_GET['module']) : "accueil"; 

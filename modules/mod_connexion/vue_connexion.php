@@ -1,6 +1,7 @@
 <?php
 
 include_once("vue_generique.php");
+include_once("token/tokenCRSF.php");
 
 class VueConnexion extends VueGenerique {
 
@@ -9,6 +10,7 @@ class VueConnexion extends VueGenerique {
     }
 
     public function form_inscrire() {
+        $token = CSRFToken::genererToken();
         ?>
             
         <div class="container d-flex justify-content-center align-items-center mt-5 rounded" style="width: 600px; height: 300px; background: #1B6CA6;">
@@ -16,6 +18,7 @@ class VueConnexion extends VueGenerique {
                 <h3 class="fw-bold"> S'inscrire </h3>
 
                 <form action="index.php?module=connexion&action=inscrire" method="post">
+                    <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Saisir login : </label>
@@ -35,11 +38,13 @@ class VueConnexion extends VueGenerique {
         <?php
     }
  public function form_connexion() {  
+    $token = CSRFToken::genererToken();
     ?>
     <div class="container d-flex justify-content-center align-items-center mt-5 rounded" style="width: 600px; height: 300px; background: #1B6CA6;">
         <div class="mx-auto p-2" style="width: 300px;">
             <h3 class="fw-bold"> Se connecter </h3>
             <form action="index.php?module=connexion&action=connexion" method="post">
+                <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Saisir votre login : </label>
                     <input type="text" class="form-control" name="login" id="login" placeholder="login" required>
@@ -70,7 +75,7 @@ class VueConnexion extends VueGenerique {
         ?>
 
         <div class="alert alert-warning" role="alert">
-            Le compte avec le login : <?php echo htmlentities($_POST['login']['pseudo']); ?> existe déjà.
+            Le compte avec le login : <?php echo htmlentities($_POST['login']); ?> existe déjà.
         </div>
 
         <?php
