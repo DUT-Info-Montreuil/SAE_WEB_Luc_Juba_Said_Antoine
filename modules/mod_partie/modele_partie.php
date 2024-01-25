@@ -8,7 +8,7 @@ class ModelePartie extends Connexion {
 
     public function getListePartie() {
         $query = self::$bdd->prepare("SELECT * FROM Partie WHERE id_utilisateur = ? ORDER BY date DESC");
-        $query->execute(array(htmlentities($_SESSION['login']['id_u'])));
+        $query->execute(array(htmlentities(htmlentities($_SESSION['login']['id_u']))));
         $res = $query->fetchAll();
         return $res;
     }

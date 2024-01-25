@@ -114,7 +114,7 @@ class ModeleJoueur extends Connexion {
                             if (!password_verify($newPassword, $currentPassword)) {
                                 $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                                 $updateQuery = self::$bdd->prepare("UPDATE Utilisateur SET mot_de_passe = ? WHERE pseudo = ?");
-                                $updateQuery->execute(array(htmlspecialchars($hashedNewPassword),$_SESSION['login']));
+                                $updateQuery->execute(array(htmlspecialchars($hashedNewPassword),htmlentitiesr($_SESSION['login']));
                                 echo "Le mot de passe a été mis à jour avec succès.";                                
                             } else {
                                 echo "Le nouveau mot de passe ne peut pas être identique à l'ancien.";
@@ -149,7 +149,7 @@ class ModeleJoueur extends Connexion {
     
                         if (move_uploaded_file($_FILES['inputGroupFile01']['tmp_name'], $targetFile)) {
                             $updateQuery = self::$bdd->prepare("UPDATE Utilisateur SET photo_de_profile = ? WHERE id_utilisateur = ?");
-                            $updateQuery->execute(array(htmlspecialchars($targetFile), $_SESSION['login']['id_u']));
+                            $updateQuery->execute(array(htmlspecialchars($targetFile),htmlentities($_SESSION['login']['id_u'])));
                             echo "La photo de profil a été mise à jour avec succès.";
                         } else {
                             echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
