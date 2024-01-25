@@ -31,7 +31,7 @@
 
         <div class="row justify-content-center">
           <div class="col-auto">
-            <a href="https://github.com/weDeZed/SAE_Juba_Antoine_Said"> 
+            <a href="https://github.com/DUT-Info-Montreuil/SAE_WEB_Luc_Juba_Said_Antoine.git"> 
               <img src="assets/github.svg" alt="Github" class="img-fluid"> 
             </a>
           </div>
