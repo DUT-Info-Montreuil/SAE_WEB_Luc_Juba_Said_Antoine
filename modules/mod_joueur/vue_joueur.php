@@ -144,7 +144,7 @@ class VueJoueur extends VueGenerique {
                         <form action="index.php?module=joueur&action=sauvegarde" method="post" enctype="multipart/form-data" class="mt-4">
                             <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                             <div class="mb-3"  style="background: #1B6CA6;">
-                                <label for="username" class="form-label" >Pseudo d’utilisateur :</label>
+                                <label for="username" class="form-label" >Pseudo utilisateur :</label>
                                 <p><?php echo htmlspecialchars($joueur[0]["pseudo"]); ?></p>
                             </div>
     
