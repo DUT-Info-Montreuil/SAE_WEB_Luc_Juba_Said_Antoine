@@ -160,20 +160,20 @@ class VueJoueur extends VueGenerique {
     
                             <div class="mb-3">
                                 <label for="password" class="form-label">Mot de passe :</label>
-                                <input type="text" disabled class="form-control" id="password" name="password" value="******">
+                                <input type="text" disabled class="form-control" id="password" name="password" value="***********">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">modifier</button>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
-                                            <div class="modal-content">
+                                            <div class="modal-content text-black">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">CONFIRMATION</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Vous etes sur le point de modifier votre passe, ete vous sur de vouloir le faire ?
+                                                    Vous êtes sur le point de modifier votre mot de passe, êtes-vous certain de vouloir le faire?  
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">QUITTER</button>
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">QUITTER</button>
                                                     <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                                                         data-bs-toggle="modal">OUI</button>
                                                 </div>
@@ -184,7 +184,7 @@ class VueJoueur extends VueGenerique {
                                     <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
                                         tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
+                                            <div class="modal-content text-black">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modifier mon Mot de Passe</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -200,7 +200,7 @@ class VueJoueur extends VueGenerique {
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">QUITTER</button>
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">QUITTER</button>
                                                     <input type="submit" class="btn btn-primary" name="modifierMot_De_Passe" value="Sauvegarder">
                                                 </div>
                                             </div>
@@ -217,16 +217,16 @@ class VueJoueur extends VueGenerique {
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sauvegarder</button>
                             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content text-black">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">CONFIRMATION</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Voulez vous vraiment sauvegarder les modifications que vous avez apporté sur votre page profile
+                                            Voulez-vous vraiment sauvegarder les modifications que vous avez apportées sur votre page profile ?
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">QUITTER</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">QUITTER</button>
                                             <input type="submit" class="btn btn-primary" value="Sauvegarder">
                                         </div>
                                     </div>
