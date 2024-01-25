@@ -114,7 +114,7 @@ class ModeleJoueur extends Connexion {
                             if (!password_verify($newPassword, $currentPassword)) {
                                 $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                                 $updateQuery = self::$bdd->prepare("UPDATE Utilisateur SET mot_de_passe = ? WHERE pseudo = ?");
-                                $updateQuery->execute(array(htmlspecialchars($hashedNewPassword),htmlentitiesr($_SESSION['login']));
+                                $updateQuery->execute(array(htmlspecialchars($hashedNewPassword),htmlentities($_SESSION['login'])));
                                 echo "Le mot de passe a été mis à jour avec succès.";                                
                             } else {
                                 echo "Le nouveau mot de passe ne peut pas être identique à l'ancien.";
