@@ -29,6 +29,9 @@ class ModTopic {
             case 'insertCom':
                 $this->cont->insertCom();
             break;
+            case 'supprimerCom':
+                $this->cont->suppCommentaire();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
