@@ -35,6 +35,24 @@ class ModeleTours extends Connexion
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
+public function updateTour() {
+    if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['degat']) && isset($_POST['description']) && isset($_POST['id'])) {
+        $nom = $_POST['nom'];
+        $prix = $_POST['prix'];
+        $degat = $_POST['degat'];
+        $description = $_POST['description'];
+        $id = $_POST['id'];
+
+        $query = self::$bdd->prepare("UPDATE Tours SET nom = ?, prix = ?, degat = ?, description = ? WHERE id_tour = ?");
+        $res = $query->execute([$nom, $prix, $degat, $description, $id]);
+
+        return $res; 
+    } else {
+        return false;
+    }
+}
+
+
 
 }
 ?>
