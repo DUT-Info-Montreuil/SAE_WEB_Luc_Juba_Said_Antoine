@@ -26,6 +26,9 @@ class ModAdmin {
             case 'rechercher':
                 $this->cont->resultatRecherche();
             break;
+            case 'affichageFeedback':
+                $this->cont->afficherFeedbackCont();
+                break;
             default:
                 die("l'action n'existe pas.");
         }

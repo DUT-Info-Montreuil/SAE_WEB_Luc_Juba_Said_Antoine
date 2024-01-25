@@ -60,6 +60,14 @@ class ModeleAdmin extends Connexion {
         $res = $query->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function recupererFeedback_modele() {
+        $query = self::$bdd->prepare("SELECT nom_utilisateur,email,commentaire FROM Feedback");
+        $query->execute();
+        $res = $query->fetchAll(); // Utiliser fetchAll() pour obtenir tous les résultats
+        // var_dump($res); // Pour déboguer et voir le contenu de $res
+        return $res; 
+    }
 }
 
 ?>
