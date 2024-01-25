@@ -67,6 +67,30 @@ class VueTours extends VueGenerique
         <?php
     }
 
+    
+    public function afficherPopupTour($tour){
+        ?>
+        <div class="container mt-5">
+            <div class="card mx-auto" style="max-width: 1000px;"> 
+                <div class="row g-0">
+                    <div class="col-lg-5 d-flex align-items-center justify-content-center"> 
+                        <img src="<?php echo htmlspecialchars($tour['image']); ?>" class="img-fluid rounded-start" alt="<?php echo htmlspecialchars($tour['nom']); ?>" style="max-height: 400px;"> 
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card-body text-center"> 
+                            <h5 class="card-title">Détails de <?php echo htmlspecialchars($tour['nom']); ?></h5>
+                            <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($tour['nom']); ?></p>
+                            <p class="card-text"><strong>Attaque:</strong> <?php echo htmlspecialchars($tour['degat']); ?></p>
+                            <p class="card-text"><strong>Descriptif:</strong> <?php echo htmlspecialchars($tour['description']); ?></p>
+                            <a href="index.php?module=tours&action=Test" class="btn btn-primary">Retour à la liste des tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+
     public function afficherDetailsTour($tour)
     {
         if (isset($tour) && is_array($tour)) {
@@ -94,43 +118,6 @@ class VueTours extends VueGenerique
             echo "<p>Informations sur la tour non disponibles.</p>";
         }
     }
-
-    public function afficherPopupTour($tour)
-{
-    // Vérifier si les informations de la tour sont disponibles
-    if (isset($tour['id_tour'])):
-?>
-<div class="modal text-black mt-5" tabindex="-1" role="dialog" style="display: block; position: fixed; top: 55%; left: 50%; transform: translate(-50%, -50%); z-index: 1050;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Détails de la tour</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Nom de la tour: <?= htmlspecialchars($tour['nom']) ?></p>
-                <p>Prix: <?= htmlspecialchars($tour['prix']) ?></p>
-                <p>Description: <?= htmlspecialchars($tour['description']) ?></p>
-                <p>Dégât: <?= htmlspecialchars($tour['degat']) ?></p>
-                <?php if (isset($tour['image']) && file_exists($tour['image'])): ?>
-                    <img src="<?= htmlspecialchars($tour['image']) ?>" class="img-fluid" alt="Image de la tour <?= htmlspecialchars($tour['nom']) ?>"><br>
-                <?php else: ?>
-                    <p>Image non disponible.</p>
-                <?php endif; ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php?module=tours'">Retour à la liste des tours</button>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-    endif;
-}
-
-
 
     public function afficherPopupErreur($message)
     {
