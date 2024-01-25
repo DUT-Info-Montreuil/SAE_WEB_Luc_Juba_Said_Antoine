@@ -55,7 +55,7 @@ class ModeleAdmin extends Connexion {
     }
     
     public function rechercherUtilisateur() {
-        $query = self::$bdd->prepare("SELECT id_utilisateur,pseudo FROM Utilisateur WHERE pseudo LIKE CONCAT('%', ?, '%') AND id_role = 1");
+        $query = self::$bdd->prepare("SELECT id_utilisateur,pseudo FROM Utilisateur WHERE pseudo LIKE CONCAT(?, '%') AND id_role = 1");
         $query->execute(array(htmlentities($_GET['recherche'])));
         $res = $query->fetchAll(PDO::FETCH_ASSOC);
         return $res;
@@ -64,8 +64,7 @@ class ModeleAdmin extends Connexion {
     public function recupererFeedback_modele() {
         $query = self::$bdd->prepare("SELECT nom_utilisateur,email,commentaire FROM Feedback");
         $query->execute();
-        $res = $query->fetchAll(); // Utiliser fetchAll() pour obtenir tous les résultats
-        // var_dump($res); // Pour déboguer et voir le contenu de $res
+        $res = $query->fetchAll();
         return $res; 
     }
 }
