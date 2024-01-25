@@ -62,7 +62,6 @@ class ContAdmin {
 
     public function afficherFeedbackCont(){
          $resl = $this->modele->recupererFeedback_modele();
-         //var_dump($resl);
          $this->vue->afficherFeedbacks($resl);
     }
     

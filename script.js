@@ -158,7 +158,7 @@ if (window.location.href.indexOf('index.php?module=admin') > -1) {
             let searchInputValue = $(this).val();
 
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "index.php?module=admin&action=rechercher",
                 data: { recherche: searchInputValue },
                 success: function (response) {
