@@ -35,13 +35,13 @@ class VueActeur extends vueGenerique{
     public function affiche_details_acteur($acteur){
     ?>
     <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 1000px;"> <!-- Centrer la carte et limiter sa largeur -->
+        <div class="card mx-auto" style="max-width: 1000px;"> 
             <div class="row g-0">
-                <div class="col-lg-5 d-flex align-items-center justify-content-center"> <!-- Centrer l'image verticalement et horizontalement dans sa colonne -->
-                    <img src="<?php echo htmlspecialchars($acteur['image']); ?>" class="img-fluid rounded-start" alt="<?php echo htmlspecialchars($acteur['nom']); ?>" style="max-height: 400px;"> <!-- Limiter la hauteur de l'image -->
+                <div class="col-lg-5 d-flex align-items-center justify-content-center"> 
+                    <img src="<?php echo htmlspecialchars($acteur['image']); ?>" class="img-fluid rounded-start" alt="<?php echo htmlspecialchars($acteur['nom']); ?>" style="max-height: 400px;"> 
                 </div>
                 <div class="col-lg-7">
-                    <div class="card-body text-center"> <!-- Centrer le texte dans le corps de la carte -->
+                    <div class="card-body text-center"> 
                         <h5 class="card-title">Détails de <?php echo htmlspecialchars($acteur['nom']); ?></h5>
                         <p class="card-text"><strong>Id:</strong> <?php echo htmlspecialchars($acteur['id_acteurs']); ?></p>
                         <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($acteur['nom']); ?></p>
