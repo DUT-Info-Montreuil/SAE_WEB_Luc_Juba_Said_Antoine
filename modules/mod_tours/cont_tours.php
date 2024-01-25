@@ -33,5 +33,13 @@ class ContTours
             }
         }
     }
+
+    public function update() {
+        if($this->modele->updateTour()) {
+            $this->vue->valide();
+        }else {
+            $this->vue->invalide();
+        }
+    }
 }
 ?>

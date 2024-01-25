@@ -80,9 +80,15 @@ class VueTours extends VueGenerique
                         <div class="card-body text-center"> 
                             <h5 class="card-title">Détails de <?php echo htmlspecialchars($tour['nom']); ?></h5>
                             <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($tour['nom']); ?></p>
+                            <p class="card-text"><strong>Prix:</strong> <?php echo htmlspecialchars($tour['prix']); ?></p>
                             <p class="card-text"><strong>Attaque:</strong> <?php echo htmlspecialchars($tour['degat']); ?></p>
                             <p class="card-text"><strong>Descriptif:</strong> <?php echo htmlspecialchars($tour['description']); ?></p>
                             <a href="index.php?module=tours&action=Test" class="btn btn-primary">Retour à la liste des tour</a>
+                            <?php 
+                                if(isset($_SESSION['login']) && $_SESSION['login']['id_r']==2) {
+                                    $this->modalEdition($tour);
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -122,6 +128,70 @@ class VueTours extends VueGenerique
     public function afficherPopupErreur($message)
     {
         echo '<div class="popup">' . $message . '</div>';
+    }
+
+    public function modalEdition($tour) {
+        $token = CSRFToken::genererToken();
+        ?>
+              
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Modifier
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier : <?php echo $tour['nom']; ?> </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="index.php?module=tours&action=update"method="post">
+                <input type="hidden" name="id" value="<?php echo $tour['id_tour']; ?>">
+                <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
+                    <div class="mb-3">
+                        <label class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="exampleInput"  name="nom" placeholder="nom" value="<?php echo $tour['nom']; ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Prix</label>
+                        <input type="number" class="form-control" id="exampleInput"  name="prix" value="<?php echo $tour['prix']; ?>" placeholder="prix" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dégat</label>
+                        <input type="number" class="form-control" id="exampleInput"  name="degat" value="<?php echo $tour['degat']; ?>" placeholder="dégat" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required value="<?php echo $tour['description'];?>"><?php echo $tour['description'];?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <?php
+    }
+
+    public function valide() {
+        ?>
+        <div class="alert alert-success mt-5 mx-auto" role="alert">
+            Changement effectuer avec succès.
+        </div>
+        <?php
+    }
+
+    public function invalide() {
+        ?>
+        <div class="alert alert-danger mt-5 mx-auto" role="alert">
+            Une erreur inattendu est survenu !
+        </div>
+        <?php 
     }
 
 }

@@ -25,6 +25,9 @@ class ModTours
       case "recherche":
         $this->cont->rechercheTours();
         break;
+      case 'update':
+        $this->cont->update();
+      break;
       default:
         die("Action inexistante");
     }
