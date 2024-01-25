@@ -98,7 +98,7 @@ class VueTours extends VueGenerique
     // Vérifier si les informations de la tour sont disponibles
     if (isset($tour['id_tour'])):
 ?>
-<div class="modal" tabindex="-1" role="dialog" style="display: block; position: fixed; top: 55%; left: 50%; transform: translate(-50%, -50%); z-index: 1050;">
+<div class="modal text-black mt-5" tabindex="-1" role="dialog" style="display: block; position: fixed; top: 55%; left: 50%; transform: translate(-50%, -50%); z-index: 1050;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
