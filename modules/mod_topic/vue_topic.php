@@ -12,13 +12,13 @@ class VueTopic extends VueGenerique{
     public function afficheFormTopic() {
         $token = CSRFToken::genererToken();
         ?>
-        <div class="container">
+        <div class="container mx-auto mt-5" style="width: 500px;">
             <h1> Créer un topic :</h1>
             <form action="index.php?module=topic&action=creerTopic" method="post">
             <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">  <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                 <div class="mb-3">
-                    <label for="questionId" class="form-label">Question :</label>
-                    <input type="text" class="form-control" id="questionId" name="question" placeholder="Saisir votre question" required>
+                    <label for="questionId" class="form-label">Titre :</label>
+                    <input type="text" class="form-control" id="questionId" name="question" placeholder="Saisir votre titre" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
@@ -38,7 +38,7 @@ class VueTopic extends VueGenerique{
                     <p>Créer un topic : <a class="btn btn-primary" href="index.php?module=topic&action=affiche_form" role="button">Nouveau Topic</a></p>
                 </div>
             <?php } ?>
-            <div class="card" style="width: 32rem; max-height : 350px; overflow-y : auto;">
+            <div class="card" style="width: 32rem; max-height : 500px; overflow-y : auto;">
                 <div class="card-header">
                     Topics disponibles :
                 </div>
@@ -102,7 +102,7 @@ class VueTopic extends VueGenerique{
                         <span>poster le <?php echo $value['dateMessage']; ?> </span>
                         <span>à <?php echo $value['heureMessage']; ?> </span>
                         <?php
-                            if(isset($_SESSION['login']) && $value['id_utilisateur']==$_SESSION['login']['id_u'] || $_SESSION['login']['id_r'] == 2) {
+                            if(isset($_SESSION['login']) && $value['id_utilisateur']==$_SESSION['login']['id_u'] || isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2) {
                                 ?>
                                 <?php echo $this->menuCommentaire($value['id_message']); ?>
                                 <?php
@@ -182,6 +182,22 @@ class VueTopic extends VueGenerique{
             </div>
         </div>
         <?php
+    }
+
+    public function valide() {
+        ?>
+        <div class="alert alert-success mt-5 mx-auto" role="alert">
+            Insertion réussite.
+        </div>
+        <?php
+    }
+
+    public function invalide() {
+        ?>
+        <div class="alert alert-danger mt-5 mx-auto" role="alert">
+            Une erreur inattendu est survenu !
+        </div>
+        <?php 
     }
     
     

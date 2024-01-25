@@ -18,9 +18,9 @@ class ContTopic {
 
     public function creerTopic() {
         if($this->modele->insertTopic()) {
-            echo "Insertion réussite.";
+            $this->vue->valide();
         }else {
-            echo "Une erreur inattendu est survenu !";
+            $this->vue->invalide();
         }
     }
 
