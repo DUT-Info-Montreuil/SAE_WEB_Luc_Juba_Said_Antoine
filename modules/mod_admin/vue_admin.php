@@ -17,27 +17,27 @@ class VueAdmin extends VueGenerique
             <div class="bloc-dashboard mt-5 mb-5 mx-auto text-white fw-bold">
                 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 text-center d-flex justify-content-center">
                     <div class="col">
-                        <p>Compte inscrit</p>
+                        <p>Compte inscrit en tout</p>
                         <div class="cercle">
-                            <p> <?php echo $data['nbrInscrit']; ?> </p>
+                            <p  class="text-black"> <?php echo $data['nbrInscrit']; ?> </p>
                         </div>
                     </div>
                     <div class="col">
-                        <p>Meilleur joueur</p>
+                        <p>Meilleur joueur global</p>
                         <div class="cercle">
-                            <p> <?php echo $data['meilleurJoueur']; ?> </p>
+                            <p class="text-black"> <?php echo $data['meilleurJoueur']; ?> </p>
                         </div>
                     </div>
                     <div class="col">
-                        <p>Nombre partie</p>
+                        <p>Nombre de partie</p>
                         <div class="cercle">
-                            <p> <?php echo $data['nbrPartie']; ?> </p>
+                            <p  class="text-black"> <?php echo $data['nbrPartie']; ?> </p>
                         </div>
                     </div>
                     <div class="col">
-                        <p>Total feedback</p>
+                        <p>Total des feedback</p>
                         <div class="cercle">
-                            <p> <?php echo $data['nbrFeedback']; ?> </p>
+                            <p  class="text-black"> <?php echo $data['nbrFeedback']; ?> </p>
                         </div>
                     </div>
                 </div>
