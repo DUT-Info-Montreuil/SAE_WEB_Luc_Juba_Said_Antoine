@@ -154,11 +154,6 @@ class VueTopic extends VueGenerique{
                         Supprimer
                     </button>
                 </li>
-                <li>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?php echo $editModalId; ?>">
-                        Modifier
-                    </button>
-                </li>
             </ul>
         </div>
     
