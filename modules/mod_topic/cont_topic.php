@@ -43,6 +43,23 @@ class ContTopic {
             exit();
         }
     }
+
+    public function suppCommentaire() {
+        $data = json_decode(file_get_contents("php://input"));
+        $id = $data->id;
+
+        $rowCount = $this->modele->deleteCommentaire($id);
+
+        if ($rowCount > 0) {
+            header('Content-Type: application/json');
+            echo json_encode(["success" => true, "message" => "Utilisateur supprimé avec succès"]);
+            exit();
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(["success" => false, "message" => "Erreur lors de la suppression de l'utilisateur"]);
+            exit();
+        }
+    }
     
 }
 

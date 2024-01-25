@@ -170,6 +170,25 @@ if (window.location.href.indexOf('index.php?module=admin') > -1) {
 
 if (window.location.href.indexOf('index.php?module=topic') > -1) {
     $(function() {
+
+        function suppCommentaire(commentId) {
+            $.ajax({
+                type: "POST",
+                url: "index.php?module=topic&action=supprimerCom",
+                data: JSON.stringify({ id: commentId }),
+                success: function (response) {
+                    if (response.success) {
+                        location.reload();
+                    }
+                }
+            });
+        }
+
+        $("[id^='deleteComment']").click(function() {
+            let commentId = $(this).attr("id").split("_")[1];
+            suppCommentaire(commentId);
+        });
+
         $("#envoyerCom").click(function(e) {
             e.preventDefault();
             var formData = $("#commentForm").serialize();

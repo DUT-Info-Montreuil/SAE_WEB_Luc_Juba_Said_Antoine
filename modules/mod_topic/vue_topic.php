@@ -99,6 +99,13 @@ class VueTopic extends VueGenerique{
                         <span> <?php echo $value['pseudo']; ?> </span>
                         <span>poster le <?php echo $value['dateMessage']; ?> </span>
                         <span>à <?php echo $value['heureMessage']; ?> </span>
+                        <?php
+                            if(isset($_SESSION['login']) && $value['id_utilisateur']==$_SESSION['login']['id_u']) {
+                                ?>
+                                <?php echo $this->menuCommentaire($value['id_message']); ?>
+                                <?php
+                            }
+                        ?>
                     </p>
                     <div class="card-body">
                         <p class="card-text"><?= $value['contenu'] ?></p>
@@ -131,6 +138,70 @@ class VueTopic extends VueGenerique{
             <?php
         }
     }
+
+    public function menuCommentaire($id) {
+        $deleteModalId = "deleteModal_" . $id;
+        $editModalId = "editModal_" . $id;
+        ?>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/pencil-square.svg" alt="Instagram" class="img-fluid"> 
+            </a>
+    
+            <ul class="dropdown-menu">
+                <li>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#<?php echo $deleteModalId; ?>">
+                        Supprimer
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?php echo $editModalId; ?>">
+                        Modifier
+                    </button>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="modal fade" id="<?php echo $deleteModalId; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="<?php echo $deleteModalId; ?>Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="<?php echo $deleteModalId; ?>Label">Suppression</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger" role="alert">
+                            Etes-vous sûr de supprimer votre commentaire ? 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary" id="deleteComment_<?php echo $id; ?>">Confirmer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="<?php echo $editModalId; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="<?php echo $editModalId; ?>Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="<?php echo $editModalId; ?>Label">Modification</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Contenu du modal de modification...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary" id="editComment_<?php echo $id; ?>">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    
     
 }
 
