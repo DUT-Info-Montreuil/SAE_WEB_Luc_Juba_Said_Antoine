@@ -59,7 +59,7 @@ class VueTours extends VueGenerique
         <div class="search-bar">
             <form action="index.php?module=tours&action=recherche" method="post">
                 <input type="text" name="search" placeholder="Rechercher un tour par nom...">
-                <button type="submit">Rechercher</button>
+                <button type="submit"  class="btn btn-primary">Rechercher</button>
             </form>
         </div>
         <?php
