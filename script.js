@@ -189,6 +189,18 @@ if (window.location.href.indexOf('index.php?module=topic') > -1) {
             suppCommentaire(commentId);
         });
 
+        verifTexte();
+
+        $("#exampleFormControlTextarea1").on("input", function() {
+            verifTexte();
+        });
+
+        function verifTexte() {
+            var texte = $("#exampleFormControlTextarea1").val();
+            var estValid = texte.trim() !== "";
+            $("#envoyerCom").prop("disabled",!estValid);
+        }
+
         $("#envoyerCom").click(function(e) {
             e.preventDefault();
             var formData = $("#commentForm").serialize();

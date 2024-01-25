@@ -190,7 +190,12 @@ class VueTopic extends VueGenerique{
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Contenu du modal de modification...
+                        <form action="index.php?module=topic&action=modifierCommentaire" method="post">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Nouveau commentaire</span>
+                                <input type="text" name="nouveauMessage" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="écrivez votre commentaire" required>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

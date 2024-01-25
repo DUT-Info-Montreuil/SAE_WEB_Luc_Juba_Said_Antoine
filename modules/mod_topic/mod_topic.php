@@ -32,6 +32,9 @@ class ModTopic {
             case 'supprimerCom':
                 $this->cont->suppCommentaire();
             break;
+            case 'modifierCommentaire':
+                $this->cont->modifierCommentaire();
+            break;
             default:
                 die("l'action n'existe pas.");
         }
