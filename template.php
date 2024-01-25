@@ -53,6 +53,8 @@
         </div>
 
         <small class="text-white-50"> &copy; SAE R3.2 2023-2024 </small>
+        <br>
+        <small class="text-white-50"> Créateur du site : Xiang Luc | Shinwari Said Kamal | Ngatchou Antoine | Chabane Juba </small>
         
       </div>
   </footer>
