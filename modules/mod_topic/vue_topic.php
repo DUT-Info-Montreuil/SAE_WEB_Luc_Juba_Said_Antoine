@@ -10,10 +10,12 @@ class VueTopic extends VueGenerique{
     }
 
     public function afficheFormTopic() {
+        $token = CSRFToken::genererToken();
         ?>
         <div class="container">
             <h1> Créer un topic :</h1>
             <form action="index.php?module=topic&action=creerTopic" method="post">
+            <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">  <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                 <div class="mb-3">
                     <label for="questionId" class="form-label">Question :</label>
                     <input type="text" class="form-control" id="questionId" name="question" placeholder="Saisir votre question" required>
