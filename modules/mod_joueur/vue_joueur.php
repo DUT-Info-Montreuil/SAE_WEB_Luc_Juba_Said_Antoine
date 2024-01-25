@@ -148,6 +148,7 @@ class VueJoueur extends VueGenerique {
     
                             <div class="text-center mb-3">
                                 <label for="profile_pic" class="form-label">Photo de profil :</label><br>
+                                
                                 <img src="<?php echo htmlspecialchars($joueur[0]['photo_de_profile']); ?>" class="img-fluid rounded-circle mb-3" alt="image" style="width: 150px; height: 150px; object-fit: cover;">
                                 <div>
                                     <label class="btn btn-primary" for="inputGroupFile01">Modifier</label>

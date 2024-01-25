@@ -13,47 +13,43 @@ class VueTours extends VueGenerique
     public function afficherTours($elements)
     {
         ?>
-
-        <head>
-
-        </head>
-
-        <body>
-            <?php
-              if (empty($elements)) {
-                echo "<p>Aucun élément à afficher</p>";
-            } else {
-                echo '<div class="cards-container">';
-                foreach ($elements as $element) {
-                    if (isset($element['id_tour'], $element['image'], $element['nom'], $element['degat'])) {
-                        ?>
-                        <div class="card1 ">
-                            <a href="#popup<?= htmlspecialchars($element['id_tour']) ?>">
-                                <img src="<?= htmlspecialchars($element['image']) ?>" alt="Image du tour" />
-                            </a>
-                            <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
-                            <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
-                            <!-- Pop-up -->
-                            <div id="popup<?= htmlspecialchars($element['id_tour']) ?>" class="popup">
-                                <div class="popup-content">
-                                    <a href="#" class="close">&times;</a>
-                                    <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
-                                    <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
-                                    <p>Prix: <?= htmlspecialchars($element['prix']) ?></p>
-                                    <p>Description: <?= htmlspecialchars($element['description']) ?></p>
+        <div class="container mt-5">
+            <?php if (empty($elements)) : ?>
+                <p>Aucun élément à afficher</p>
+            <?php else : ?>
+                <div class="row">
+                    <?php foreach ($elements as $element) : ?>
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <!-- Lien autour de l'image pour ouvrir le popup -->
+                                <a href="#popup<?= htmlspecialchars($element['id_tour']) ?>">
+                                    <img src="<?= htmlspecialchars($element['image']) ?>" class="card-img-top" alt="Image du tour" style="cursor:pointer;">
+                                </a>
+    
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= htmlspecialchars($element['nom']) ?></h5>
+                                    <p class="card-text">Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                    }
-                }
-                echo '</div>';
-            }
-            ?>
-        </body>
+    
+                        <!-- Popup basé sur CSS -->
+                        <div id="popup<?= htmlspecialchars($element['id_tour']) ?>" class="popup">
+                            <div class="popup-content">
+                                <a href="#" class="close">&times;</a>
+                                <p>Nom: <?= htmlspecialchars($element['nom']) ?></p>
+                                <p>Dégâts: <?= htmlspecialchars($element['degat']) ?></p>
+                                <p>Prix: <?= isset($element['prix']) ? htmlspecialchars($element['prix']) : 'Non spécifié' ?></p>
+                                <p>Description: <?= isset($element['description']) ? htmlspecialchars($element['description']) : 'Non spécifiée' ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
         <?php
     }
-
+    
 
 
 
@@ -98,33 +94,39 @@ class VueTours extends VueGenerique
     }
 
     public function afficherPopupTour($tour)
-    {
-        // Vérifier si les informations de la tour sont disponibles
-        if (isset($tour['id_tour'])) {
-            // Affichage des détails de la tour
-            echo '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid #ddd; padding: 20px; background-color: white; z-index: 1000; text-align: center;">';  // Ajout de text-align: center
-            echo 'Nom de la tour: ' . htmlspecialchars($tour['nom']) . '<br>';
-            echo 'Prix: ' . htmlspecialchars($tour['prix']) . '<br>';
-            echo 'Description: ' . htmlspecialchars($tour['description']) . '<br>';
-            echo 'Dégât: ' . htmlspecialchars($tour['degat']) . '<br>';
-
-            // Affichage de l'image de la tour
-            if (isset($tour['image']) && file_exists($tour['image'])) {
-                echo '<img src="' . htmlspecialchars($tour['image']) . '" alt="Image de la tour ' . htmlspecialchars($tour['nom']) . '" style="max-width: 100%; max-height: 300px; width: auto; height: auto;"><br>';
-            } else {
-                echo 'Image non disponible.<br>';
-            }
-
-            // Bouton de retour à la liste des tours, centré
-            echo '<div style="text-align: center;">';
-            echo '<button onclick="window.location.href=\'index.php?module=tours\'">Retour à la liste des tours</button>';
-            echo '</div>';
-
-            echo '</div>';
-        }
-    }
-
-
+{
+    // Vérifier si les informations de la tour sont disponibles
+    if (isset($tour['id_tour'])):
+?>
+<div class="modal" tabindex="-1" role="dialog" style="display: block; position: fixed; top: 55%; left: 50%; transform: translate(-50%, -50%); z-index: 1050;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Détails de la tour</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Nom de la tour: <?= htmlspecialchars($tour['nom']) ?></p>
+                <p>Prix: <?= htmlspecialchars($tour['prix']) ?></p>
+                <p>Description: <?= htmlspecialchars($tour['description']) ?></p>
+                <p>Dégât: <?= htmlspecialchars($tour['degat']) ?></p>
+                <?php if (isset($tour['image']) && file_exists($tour['image'])): ?>
+                    <img src="<?= htmlspecialchars($tour['image']) ?>" class="img-fluid" alt="Image de la tour <?= htmlspecialchars($tour['nom']) ?>"><br>
+                <?php else: ?>
+                    <p>Image non disponible.</p>
+                <?php endif; ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php?module=tours'">Retour à la liste des tours</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+    endif;
+}
 
 
 

@@ -59,6 +59,12 @@ class ContAdmin {
         echo $vue->affiche_utilisateur($users);
         exit();
     }
+
+    public function afficherFeedbackCont(){
+         $resl = $this->modele->recupererFeedback_modele();
+         //var_dump($resl);
+         $this->vue->afficherFeedbacks($resl);
+    }
     
 }
 

@@ -115,7 +115,39 @@ class VueAdmin extends VueGenerique
                 </div>
             </div>
         <?php
-    }    
+    }   
+    
+    public function afficherFeedbacks($feedbacks){
+        ?>
+        <div id="liste_feedbacks" class="container mt-3">
+        <?php if (empty($feedbacks)): ?>
+            <div class="alert alert-warning" role="alert">
+                Aucun feedback pour le moment.
+            </div>
+        <?php else: ?>
+            <div class="list-group">
+                <?php foreach ($feedbacks as $feedback): ?>
+                    <?php if (isset($feedback['commentaire'])): ?>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Nom Utilisateur : <?= htmlspecialchars($feedback['nom_utilisateur']) ?></h5>
+                                <small class="text-muted"><?= htmlspecialchars($feedback['email']) ?></small>
+                            </div>
+                            <p class="mb-1"> Commentaire : <?= htmlspecialchars($feedback['commentaire']) ?></p>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        </div>
+        <?php
+    }
+    
+    
+    
+
 }
+
+
 
 ?>

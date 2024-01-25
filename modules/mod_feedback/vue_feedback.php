@@ -23,21 +23,6 @@ class VueFeedback extends VueGenerique
     <?php
     }
 
-    public function afficherFeedbacks($feedbacks){
-    ?>
-        <div id="liste_feedbacks">
-            <?php
-            foreach ($feedbacks as $feedback) {
-            ?>
-                <div class="feedback">
-                    <h3><?php echo htmlspecialchars($feedback['nom_utilisateur']); ?></h3>
-                    <p><?php echo htmlspecialchars($feedback['commentaire']); ?></p>
-                </div>
-            <?php
-            }
-            ?>
-        </div>
-    <?php
-    }
+  
 }
 ?>
