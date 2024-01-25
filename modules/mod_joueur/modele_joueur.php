@@ -137,7 +137,7 @@ class ModeleJoueur extends Connexion {
     public function modificationPhotoDeProfil() {
         if (isset($_FILES['inputGroupFile01']['tmp_name']) && isset($_SESSION['login'])) {
     
-            $targetDirectory = "modules/mod_joueur/images"; 
+            $targetDirectory = "modules/mod_joueur/images/"; 
             $targetFile = $targetDirectory . basename($_FILES['inputGroupFile01']['name']);
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     

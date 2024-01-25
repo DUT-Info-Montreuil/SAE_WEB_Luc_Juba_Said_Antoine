@@ -11,50 +11,50 @@ class VueConnexion extends VueGenerique {
     public function form_inscrire() {
         ?>
             
-        <div class="mx-auto p-2" style="width: 300px;">
-            <h3 class="fw-bold"> S'inscrire </h3>
+        <div class="container d-flex justify-content-center align-items-center mt-5 rounded" style="width: 600px; height: 300px; background: #1B6CA6;">
+            <div class="mx-auto p-2" style="width: 300px;">
+                <h3 class="fw-bold"> S'inscrire </h3>
 
-            <form action="index.php?module=connexion&action=inscrire" method="post">
+                <form action="index.php?module=connexion&action=inscrire" method="post">
 
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Saisir login : </label>
-                    <input type="text" class="form-control" name="login" id="login" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Mot de passe : </label>
-                    <input type="password" class="form-control" name="mdp" id="mdp" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Confirmer</button>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Saisir login : </label>
+                        <input type="text" class="form-control" name="login" id="login" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Mot de passe : </label>
+                        <input type="password" class="form-control" name="mdp" id="mdp" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirmer</button>
 
-            </form>
+                </form>
 
-            <a href="index.php?module=connexion&action=form_connexion">Vous avez déjà un compte ? Se connecter </a>
+                <a class="link-light" href="index.php?module=connexion&action=form_connexion">Vous avez déjà un compte ? Se connecter </a>
+            </div>
         </div>
-
         <?php
     }
-
-    public function form_connexion() {  
-        ?>
-
+ public function form_connexion() {  
+    ?>
+    <div class="container d-flex justify-content-center align-items-center mt-5 rounded" style="width: 600px; height: 300px; background: #1B6CA6;">
         <div class="mx-auto p-2" style="width: 300px;">
             <h3 class="fw-bold"> Se connecter </h3>
             <form action="index.php?module=connexion&action=connexion" method="post">
                 <div class="mb-3">
-                    <label class="form-label fw-semibold">Saisir login : </label>
-                    <input type="text" class="form-control" name="login" id="login" required>
+                    <label class="form-label fw-semibold">Saisir votre login : </label>
+                    <input type="text" class="form-control" name="login" id="login" placeholder="login" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Mot de passe : </label>
-                    <input type="password" class="form-control" name="mdp" id="mdp" required>
+                    <input type="password" class="form-control" name="mdp" id="mdp" placeholder="mot de passe" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Connexion</button>
             </form>
-            <a href="index.php?module=connexion&action=form_inscription">Vous inscrire ? </a>
+            <a class="link-light" href="index.php?module=connexion&action=form_inscription">Vous inscrire ? </a>
         </div>
-           
-        <?php
-    }
+    </div>
+    <?php
+}
 
     public function deja_connecter() {
         ?>
