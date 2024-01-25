@@ -116,7 +116,7 @@ class VueJoueur extends VueGenerique {
             <div class="row justify-content-center mt-4">
                 <div class="col-md-6">
                     <div class="dropdown text-center">
-                        <a class="btn btn-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Filtre Classement
                         </a>
                         <ul class="dropdown-menu">
@@ -140,15 +140,15 @@ class VueJoueur extends VueGenerique {
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">
-                        <h1 class="text-center">Profil Utilisateur</h1>
+                        <h1 class="text-center" style="background: #1B6CA6;">Profil Utilisateur</h1>
                         <form action="index.php?module=joueur&action=sauvegarde" method="post" enctype="multipart/form-data" class="mt-4">
                             <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Pseudo d’utilisateur :</label>
+                            <div class="mb-3"  style="background: #1B6CA6;">
+                                <label for="username" class="form-label" >Pseudo d’utilisateur :</label>
                                 <p><?php echo htmlspecialchars($joueur[0]["pseudo"]); ?></p>
                             </div>
     
-                            <div class="text-center mb-3">
+                            <div class="text-center mb-3"  style="background: #1B6CA6;">
                                 <label for="profile_pic" class="form-label">Photo de profil :</label><br>
                                 
                                 <img src="<?php echo htmlspecialchars($joueur[0]['photo_de_profile']); ?>" class="img-fluid rounded-circle mb-3" alt="image" style="width: 150px; height: 150px; object-fit: cover;">
@@ -208,8 +208,6 @@ class VueJoueur extends VueGenerique {
                                     </div>
                                                 </div>
     
-                            <!-- Modals pour la modification du mot de passe -->
-    
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description :</label>
                                 <textarea class="form-control" disabled id="description" name="description"><?php echo htmlspecialchars($joueur[0]["description"]); ?></textarea>
@@ -239,9 +237,6 @@ class VueJoueur extends VueGenerique {
                     </div>
                 </div>
             </div>
-    
-            <!-- Modals pour la confirmation de sauvegarde -->
-    
         </body>
         <?php
     }
@@ -258,7 +253,7 @@ class VueJoueur extends VueGenerique {
                                     $nombreAffiche = 0;
                                     foreach ($joueurs as $j) {
                                         if ($nombreAffiche < 3) {
-                                            echo "<li class='list-group-item'>" . htmlspecialchars($j['pseudo']) . " - " . htmlspecialchars($j['max_value']) . "</li>";
+                                            echo "<li class='list-group-item'> nom : " . htmlspecialchars($j['pseudo']) . "   score :" . htmlspecialchars($j['max_value']) . "</li>";
                                             $nombreAffiche++;
                                         }
                                     }
@@ -281,7 +276,7 @@ class VueJoueur extends VueGenerique {
                         <ul class="list-group">
                             <?php
                             foreach ($joueurs as $j) {
-                                echo "<li class='list-group-item'>" . htmlspecialchars($j['pseudo']) . " - " . htmlspecialchars($j['max_value']) . "</li>";
+                                echo "<li class='list-group-item'> nom : " . htmlspecialchars($j['pseudo']) . "   score :" . htmlspecialchars($j['max_value']) . "</li>";
                             }
                             ?>
                         </ul>
