@@ -26,18 +26,7 @@
         <br>
         <br>
 
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-primary">Télécharger notre jeu <img src="assets/download.svg" alt="download" class="img-fluid"> </button>
-            </div>
-            <div class="col">
-            <button type="button" class="btn btn-secondary">Présentation du jeu <br> <img src="assets/file-earmark-text-fill.svg" alt="earmark" class="img-fluid"> </button>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="mt-4 p-3 custom-bg rounded text-white">
+        <div class="mt-4 p-3 custom-bg rounded text-white" style="background: #1B6CA6;">
             <h2>Présentation du jeu</h2>
             <p>
                 Bienvenue dans l'univers passionnant de notre jeu de tower defense. Affrontez des vagues
