@@ -43,14 +43,22 @@ class VueMenu {
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="index.php?module=partie">Historique</a></li>
+                                    <li> <a class="dropdown-item" href="index.php?module=joueur&action=classement">Classement</a> </li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="index.php?module=joueur">Joueur</a> 
-                            <a class="nav-link" href="index.php?module=joueur&action=classement">Classement</a> 
-                            <a class="nav-link" href="index.php?module=joueur&action=profil">Profil</a> 
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Joueur
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li> <a class="dropdown-item" href="index.php?module=joueur&action=profil">Profil</a> </li> 
+                                    <li> <a class="dropdown-item" href="index.php?module=joueur&action=stat">Statistique</a> </li>
+                                    <li> <a class="dropdown-item" href="index.php?module=succes&action=pagePrincipal">Succès</a> </li>
+                                </ul>
+                            </li>
                             <a class="nav-link" href="index.php?module=mod_acteur">Liste Acteurs</a>
-                            <a class="nav-link" href="index.php?module=tours">Liste Tours</a>
-                            <a class="nav-link" href="index.php?module=succes&action=pagePrincipal">Succès</a> 
+                            <a class="nav-link" href="index.php?module=tours">Liste Tours</a>                       
                             <a class="nav-link" href="index.php?module=feedback">FeedBack</a> 
                             <a class="nav-link" href="index.php?module=topic">Forum</a> 
                             <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
