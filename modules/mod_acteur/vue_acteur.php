@@ -45,6 +45,7 @@ class VueActeur extends vueGenerique{
                         <h5 class="card-title">Détails de <?php echo htmlspecialchars($acteur['nom']); ?></h5>
                         <p class="card-text"><strong>Id:</strong> <?php echo htmlspecialchars($acteur['id_acteurs']); ?></p>
                         <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($acteur['nom']); ?></p>
+                        <p class="card-text"><strong>PV:</strong> <?php echo htmlspecialchars($acteur['pv']); ?></p>
                         <p class="card-text"><strong>Attaque:</strong> <?php echo htmlspecialchars($acteur['attaque']); ?></p>
                         <p class="card-text"><strong>Descriptif:</strong> <?php echo htmlspecialchars($acteur['descriptif']); ?></p>
                         <a href="index.php?module=mod_acteur&action=liste" class="btn btn-primary">Retour à la liste des acteurs</a>
