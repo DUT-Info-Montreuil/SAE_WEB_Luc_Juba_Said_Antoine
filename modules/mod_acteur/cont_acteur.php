@@ -53,6 +53,14 @@ class ContActeur {
         $this->vue_acteur->affichage_les_pages_suivant($pagTotal);
     }
 
+    public function update() {
+        if($this->modele_acteur->updateActeur()) {
+            $this->vue_acteur->valide();
+        }else {
+            $this->vue_acteur->invalide();
+        }
+    }
+
 
 }
 

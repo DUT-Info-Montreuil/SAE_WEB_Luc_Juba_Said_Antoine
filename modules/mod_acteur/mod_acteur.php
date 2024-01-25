@@ -30,7 +30,11 @@ class ModActeur{
                 case "recherche":
                     $this->conts_acteur->rechercheActeur();
                     break;
-
+                case 'update':
+                    $this->conts_acteur->update();
+                break;
+            default :
+                    die("l'action n'existe pas");
             
         }
 
