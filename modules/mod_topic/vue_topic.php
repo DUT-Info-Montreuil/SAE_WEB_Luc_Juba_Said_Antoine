@@ -166,7 +166,7 @@ class VueTopic extends VueGenerique{
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="<?php echo $deleteModalId; ?>Label">Suppression</h1>
+                        <h1 class="modal-title fs-5" id="<?php echo $deleteModalId; ?>Label">Suppression   <img src="assets/exclamation-triangle-fill.svg" alt="Warning" class="img-fluid">  </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -177,29 +177,6 @@ class VueTopic extends VueGenerique{
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                         <button type="button" class="btn btn-primary" id="deleteComment_<?php echo $id; ?>">Confirmer</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="modal fade" id="<?php echo $editModalId; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="<?php echo $editModalId; ?>Label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="<?php echo $editModalId; ?>Label">Modification</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="index.php?module=topic&action=modifierCommentaire" method="post">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-default">Nouveau commentaire</span>
-                                <input type="text" name="nouveauMessage" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="écrivez votre commentaire" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary" id="editComment_<?php echo $id; ?>">Enregistrer</button>
                     </div>
                 </div>
             </div>

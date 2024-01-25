@@ -69,18 +69,6 @@ class ModeleTopic extends Connexion {
         return false;
     }
 
-    public function updateCommentaire($id) {
-        if(isset($_SESSION['login']) && isset($_POST['nouveauMessage'])) {
-            $query = self::$bdd->prepare("UPDATE Message SET contenu = ? WHERE id_message = ?");
-            $query->execute(array($_POST['nouveauMessage'], htmlentities($id)));
-            $rowCount = $query->rowCount();
-            if($rowCount > 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-        
 }
 
 ?>
