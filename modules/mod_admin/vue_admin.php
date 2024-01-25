@@ -17,7 +17,7 @@ class VueAdmin extends VueGenerique
             <div class="bloc-dashboard mt-5 mb-5 mx-auto text-white fw-bold">
                 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 text-center d-flex justify-content-center">
                     <div class="col">
-                        <p>Compte inscrit en tout</p>
+                        <p>Total des comptes inscrit</p>
                         <div class="cercle">
                             <p  class="text-black"> <?php echo $data['nbrInscrit']; ?> </p>
                         </div>
