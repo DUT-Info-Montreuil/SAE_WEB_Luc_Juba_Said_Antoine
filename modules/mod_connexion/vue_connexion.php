@@ -1,7 +1,6 @@
 <?php
 
 include_once("vue_generique.php");
-include_once("token/tokenCRSF.php");
 
 class VueConnexion extends VueGenerique {
 

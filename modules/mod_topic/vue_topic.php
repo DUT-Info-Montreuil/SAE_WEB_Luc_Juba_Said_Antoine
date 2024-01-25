@@ -107,6 +107,11 @@ class VueTopic extends VueGenerique{
                                 <?php echo $this->menuCommentaire($value['id_message']); ?>
                                 <?php
                             }
+                            if(isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2) {
+                                ?>
+                                    <?php echo $this->menuCommentaire($value['id_message']); ?>
+                                <?php
+                            } 
                         ?>
                     </p>
                     <div class="card-body">
@@ -120,8 +125,10 @@ class VueTopic extends VueGenerique{
     
     public function insertCommentaire() {
         if(isset($_SESSION['login'])) {
+            $token = CSRFToken::genererToken();
             ?>
             <form id="commentForm" action="index.php?module=topic&action=insertCom" method="post">
+                  <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                 <div class="mb-3" style="width: 350px;">
                     <label for="exampleFormControlTextarea1" class="form-label">Saisir votre commentaire :</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="com" rows="3" required placeholder="votre commentaire ..."></textarea>
@@ -143,7 +150,7 @@ class VueTopic extends VueGenerique{
 
     public function menuCommentaire($id) {
         $deleteModalId = "deleteModal_" . $id;
-        $editModalId = "editModal_" . $id;
+        $token = CSRFToken::genererToken();
         ?>
         <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -163,6 +170,7 @@ class VueTopic extends VueGenerique{
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
                         <h1 class="modal-title fs-5" id="<?php echo $deleteModalId; ?>Label">Suppression   <img src="assets/exclamation-triangle-fill.svg" alt="Warning" class="img-fluid">  </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>

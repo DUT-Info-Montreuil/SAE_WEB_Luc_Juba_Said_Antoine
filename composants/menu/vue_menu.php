@@ -21,7 +21,7 @@ class VueMenu {
                             <a class="nav-link" href="index.php?module=mod_acteur">Liste Acteurs</a>
                             <a class="nav-link" href="index.php?module=tours">Liste Tours</a>
                             <a class="nav-link" href="index.php?module=admin&action=affichageFeedback">Feedbacks</a>
-
+                            <a class="nav-link" href="index.php?module=topic">Forum</a> 
                             <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Déconnexion</a> 
                         </div>
                     </div>
