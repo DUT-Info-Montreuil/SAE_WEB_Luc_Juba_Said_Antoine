@@ -102,7 +102,7 @@ class VueTopic extends VueGenerique{
                         <span>poster le <?php echo $value['dateMessage']; ?> </span>
                         <span>à <?php echo $value['heureMessage']; ?> </span>
                         <?php
-                            if(isset($_SESSION['login']) && $value['id_utilisateur']==$_SESSION['login']['id_u']) {
+                            if(isset($_SESSION['login']) && $value['id_utilisateur']==$_SESSION['login']['id_u'] || $_SESSION['login']['id_r'] == 2) {
                                 ?>
                                 <?php echo $this->menuCommentaire($value['id_message']); ?>
                                 <?php
