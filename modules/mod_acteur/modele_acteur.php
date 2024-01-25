@@ -45,5 +45,30 @@ class ModeleActeur extends Connexion{
         $sql->execute(array('%' . $searchTerm . '%'));
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function updateActeur() {
+        if(isset($_POST['nom']) && isset($_POST['pv']) && isset($_POST['attaque']) && isset($_POST['descriptif']) && isset($_POST['id'])) {
+            
+            $nom = $_POST['nom'];
+            $pv = $_POST['pv'];
+            $attaque = $_POST['attaque'];
+            $descriptif = $_POST['descriptif'];
+            $id = $_POST['id'];
+    
+            $query = self::$bdd->prepare("UPDATE Acteurs SET nom = ?, pv = ?, attaque = ?, descriptif = ? WHERE id_acteurs = ?");
+            $res = $query->execute(array(
+                htmlentities($nom), 
+                htmlentities($pv), 
+                htmlentities($attaque),
+                htmlentities($descriptif), 
+                htmlentities($id)
+            ));
+    
+            return $res; 
+        } else {
+            return false;
+        }
+    }
+    
     
 }

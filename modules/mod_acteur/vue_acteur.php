@@ -49,6 +49,11 @@ class VueActeur extends vueGenerique{
                         <p class="card-text"><strong>Attaque:</strong> <?php echo htmlspecialchars($acteur['attaque']); ?></p>
                         <p class="card-text"><strong>Descriptif:</strong> <?php echo htmlspecialchars($acteur['descriptif']); ?></p>
                         <a href="index.php?module=mod_acteur&action=liste" class="btn btn-primary">Retour à la liste des acteurs</a>
+                        <?php
+                            if(isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2) {
+                                $this->modalEdition($acteur);
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -116,6 +121,70 @@ public function afficherPopupActeur($acteur)
     public function afficherPopupErreur($message)
     {
         echo '<div class="popup">' . $message . '</div>';
+    }
+
+    public function modalEdition($acteur) {
+        $token = CSRFToken::genererToken();
+        ?>
+              
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Modifier
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="index.php?module=mod_acteur&action=update"method="post">
+                <input type="hidden" name="id" value="<?php echo $acteur['id_acteurs']; ?>">
+                <input type="hidden" name="<?php echo CSRFToken::getTokenName(); ?>" value="<?php echo $token; ?>">
+                    <div class="mb-3">
+                        <label class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="exampleInput"  name="nom" placeholder="nom" value="<?php echo $acteur['nom']; ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">PV</label>
+                        <input type="number" class="form-control" id="exampleInput"  name="pv" value="<?php echo $acteur['pv']; ?>" placeholder="attaque" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Attaque</label>
+                        <input type="number" class="form-control" id="exampleInput"  name="attaque" value="<?php echo $acteur['attaque']; ?>" placeholder="attaque" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptif" required value="<?php echo $acteur['descriptif'];?>"><?php echo $acteur['descriptif'];?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <?php
+    }
+
+    public function valide() {
+        ?>
+        <div class="alert alert-success mt-5 mx-auto" role="alert">
+            Changement effectuer avec succès.
+        </div>
+        <?php
+    }
+
+    public function invalide() {
+        ?>
+        <div class="alert alert-danger mt-5 mx-auto" role="alert">
+            Une erreur inattendu est survenu !
+        </div>
+        <?php 
     }
 
 }
