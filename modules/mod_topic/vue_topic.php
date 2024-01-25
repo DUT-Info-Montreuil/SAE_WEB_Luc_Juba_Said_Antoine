@@ -107,11 +107,6 @@ class VueTopic extends VueGenerique{
                                 <?php echo $this->menuCommentaire($value['id_message']); ?>
                                 <?php
                             }
-                            if(isset($_SESSION['login']) && $_SESSION['login']['id_r'] == 2) {
-                                ?>
-                                    <?php echo $this->menuCommentaire($value['id_message']); ?>
-                                <?php
-                            } 
                         ?>
                     </p>
                     <div class="card-body">
