@@ -40,15 +40,15 @@ class VuePartie extends VueGenerique {
                     <h5 class="card-title">Partie du : <?php echo $partieCourrante['date']; ?></h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"> Nombre de vague : <?php echo $partieCourrante['nombre_vague']; ?></p>
-                    <p class="card-text"> Ennemis tué : <?php echo $partieCourrante['ennemis_tuer']; ?></p>
+                    <p class="card-text"> Nombre de vagues : <?php echo $partieCourrante['nombre_vague']; ?></p>
+                    <p class="card-text"> Ennemis tués : <?php echo $partieCourrante['ennemis_tuer']; ?></p>
                     <p class="card-text"> Nombre tours : <?php echo $partieCourrante['nombre_tours']; ?></p>
                     <p class="card-text"> Score : <?php echo $partieCourrante['score']; ?></p>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Acteurs apparu :
+                                Acteurs apparus :
                             </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -64,7 +64,7 @@ class VuePartie extends VueGenerique {
                                         }else {
                                             ?> 
                                             <div class="alert alert-info" role="alert">
-                                                <strong> Aucun acteurs n'est apparu durant votre partie. </strong> 
+                                                <strong> Aucun acteur n'est apparu durant votre partie. </strong> 
                                             </div>
                                             <?php
                                         }
@@ -91,7 +91,7 @@ class VuePartie extends VueGenerique {
                                         }else{
                                             ?> 
                                             <div class="alert alert-info" role="alert">
-                                                <strong> Aucune tourelle n'a été poser durant votre partie. </strong> 
+                                                <strong> Aucune tourelle n'a été posée durant votre partie. </strong> 
                                             </div>
                                                 
                                             <?php

@@ -23,8 +23,8 @@ class VueJoueur extends VueGenerique {
                         <h2> Moyenne </h2>
                         <p>Vague : <?php echo $moyenne['moyenne_vague']; ?></p>
                         <p>Ennemis : <?php echo $moyenne['moyenne_ennemis']; ?></p>
-                        <p>Ennemis tué : <?php echo $moyenne['moyenne_tuer']; ?></p>
-                        <p>Tourelles posé : <?php echo $moyenne['moyenne_tours']; ?></p>
+                        <p>Ennemis tués : <?php echo $moyenne['moyenne_tuer']; ?></p>
+                        <p>Tourelles posées : <?php echo $moyenne['moyenne_tours']; ?></p>
                     </div>
                 </div>
     
@@ -33,8 +33,8 @@ class VueJoueur extends VueGenerique {
                         <h2> Maximum </h2>
                         <p>Vague : <?php echo $max['max_vague']; ?></p>
                         <p>Ennemis : <?php echo $max['max_ennemis']; ?></p>
-                        <p>Ennemis tué : <?php echo $max['max_tuer']; ?></p>
-                        <p>Tourelles posé : <?php echo $max['max_tours']; ?></p>
+                        <p>Ennemis tués : <?php echo $max['max_tuer']; ?></p>
+                        <p>Tourelles posées : <?php echo $max['max_tours']; ?></p>
                     </div>
                 </div>
 
@@ -43,8 +43,8 @@ class VueJoueur extends VueGenerique {
                         <h2> Minimum </h2>
                         <p>Vague : <?php echo $min['min_vague']; ?></p>
                         <p>Ennemis : <?php echo $min['min_ennemis']; ?></p>
-                        <p>Ennemis tué : <?php echo $min['min_tuer']; ?></p>
-                        <p>Tourelles posé : <?php echo $min['min_tours']; ?></p>
+                        <p>Ennemis tués : <?php echo $min['min_tuer']; ?></p>
+                        <p>Tourelles posées : <?php echo $min['min_tours']; ?></p>
                     </div>
                 </div>
     
@@ -58,7 +58,7 @@ class VueJoueur extends VueGenerique {
         ?>
             <div class="text-center m-5">
                 <div class="alert alert-info" role="alert">
-                    Vous n'avez aucune donnée de jeu enregistrer.
+                    Vous n'avez aucune donnée de jeu enregistrée.
                 </div>
             </div>
         <?php
@@ -75,7 +75,7 @@ class VueJoueur extends VueGenerique {
                     <ul class="dropdown-menu ">
                         <li><button type="button" class="dropdown-item" id="ennemis-tues">Ennemis tués</button></li>
                         <li><button type="button" class="dropdown-item" id="nombre-vague">Nombre de vagues</button></li>
-                        <li><button type="button" class="dropdown-item" id="nombre-tours">Nombre de tourelles posé</button></li>
+                        <li><button type="button" class="dropdown-item" id="nombre-tours">Nombre de tourelles posées</button></li>
                         <li><button type="button" class="dropdown-item" id="score">Score</button></li>
                     </ul>
                 </div>
