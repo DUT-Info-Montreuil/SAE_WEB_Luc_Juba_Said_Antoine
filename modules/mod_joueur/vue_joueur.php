@@ -223,7 +223,7 @@ class VueJoueur extends VueGenerique {
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Voulez-vous vraiment sauvegarder les modifications que vous avez apportées sur votre page profile ?
+                                            Voulez-vous vraiment sauvegarder les modifications que vous avez apportées sur votre page profil ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">QUITTER</button>
