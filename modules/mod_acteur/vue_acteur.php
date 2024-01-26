@@ -42,7 +42,7 @@ class VueActeur extends vueGenerique{
                 </div>
                 <div class="col-lg-7">
                     <div class="card-body text-center"> 
-                        <h5 class="card-title">Détails de <?php echo htmlspecialchars($acteur['nom']); ?></h5>
+                        <h5 class="card-title">Détail : <?php echo htmlspecialchars($acteur['nom']); ?></h5>
                         <p class="card-text"><strong>Id:</strong> <?php echo htmlspecialchars($acteur['id_acteurs']); ?></p>
                         <p class="card-text"><strong>Nom:</strong> <?php echo htmlspecialchars($acteur['nom']); ?></p>
                         <p class="card-text"><strong>PV:</strong> <?php echo htmlspecialchars($acteur['pv']); ?></p>
