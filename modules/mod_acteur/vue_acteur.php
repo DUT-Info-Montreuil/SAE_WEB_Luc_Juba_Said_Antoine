@@ -13,7 +13,7 @@ class VueActeur extends vueGenerique{
         if (empty($elements)) {
             echo "<p>Aucun élément à afficher</p>";
         } else {
-            echo '<div class="row">'; // Utilisation de la classe 'row' pour aligner les images en ligne
+            echo '<div class="row mt-5">'; // Utilisation de la classe 'row' pour aligner les images en ligne
         foreach ($elements as $element) {
                 $imageUrl = htmlspecialchars($element['image']);
                 $elementId = htmlspecialchars($element['id_acteurs']);
